@@ -50,29 +50,24 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
             $scope.error = error;
         });
     
-    $scope.dateTimeStart = function () {
-    var d = new Date();
-        
-        var year = d.getYear();
-        var month = d.getMonth();
-        var day = d.getDay();
-        
-        var hours = d.getHours ();
-        var minutes = d.getMinutes ();
-        
-        
-//    var n = d.toString();
-//    $scope.startDT = n;
-    }
-    
-    $scope.dateTimeEnd = function () {
-    var d = new Date();
-    var n = d.toString();
-    $scope.endDT = n;
-    }
-    
-    
-    
-    
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker();
+
 }]);
+
+app.directive('customzdatetime', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModelCtrl) {
+            element.datetimepicker({
+                debug: false,
+                format: 'DD-MM-YYYY hh:mm'
+            }).on('dp.change', function (e) {
+                ngModelCtrl.$setViewValue(e.date);
+                scope.$apply();
+            });
+        }
+    };
+});
 
