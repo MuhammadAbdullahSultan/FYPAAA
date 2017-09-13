@@ -29,13 +29,10 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
         }).catch(function(error) {
             $scope.error = error;
         });
-   
+
     
     $(document).ready(function () {
-    var date = new Date();
-    var currentMonth = date.getMonth();
-    var currentDate = date.getDate();
-    var currentYear = date.getFullYear();
+    
 
         $('#datetimepicker2').datetimepicker({
             viewMode: 'years'
@@ -48,22 +45,29 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
                 viewMode: 'years',
                 format: 'YYYY'
             });
-     
-//    $('#yearPicker').datepicker({
-//        maxDate: new Date(currentYear, currentMonth, currentDate),
-//        changeYear: true,
-//        showButtonPanel: true,
-//        dateFormat: 'yy',
-//        onClose: function(dateText, inst) { 
-//            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-//            $(this).datepicker('setDate', new Date(year, 1));
-//            $(".date-picker-year").focus(function () {
-//         $(".ui-datepicker-month").hide();
-//         $(".ui-datepicker-date").hide();
-//        });
-//        }
-//    });
+        
+        $("#datetimepicker11").on("dp.change", function() {
+
+        $scope.yearFilter = $("#datetimepicker11").val();
+
+    });
+        
+        $("#datetimepicker10").on("dp.change", function() {
+
+        $scope.monthFilter = $("#datetimepicker10").val();
+
+    });
+        
+        $("#datetimepicker2").on("dp.change", function() {
+
+        $scope.dateFilter = $("#datetimepicker2").val();
+
+    });
 });
+    
+   
+    
+    
     
 //    $(function() {
 //	$('.monthYearPicker').datepicker({

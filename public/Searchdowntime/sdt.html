@@ -59,35 +59,34 @@
 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initialize()">VIEW REPORT   <span class="glyphicon glyphicon-eye-open"></span></a>
     
     <hr/>
-
-<div class="row border">
-    <span>
-    <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3 input-group date" id="equipList">
+<form>
+<div class="row">
+    <span class="col-xs-6 col-xs-offset-3 border">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 input-group date" id="equipList">
          <label for="date">Selection of Year</label>
          <input type="text" id="datetimepicker11" class="form-control" placeholder="Year" data-ng-model="yearFilter"/>
       </div>
-        
         {{yearFilter}}
     
-    <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3 input-group date" id="equipList">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 input-group date" id="equipList">
          <label for="date">Selection of Month</label>
          <input type="text" class="form-control" id="datetimepicker10" placeholder="Month, Year" data-ng-model="monthFilter"/>
       </div>
         
         {{monthFilter}}
     
-    <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3" id="equipList">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 input-group date" id="equipList">
          <label for="date">Select Day Downtime</label>
          <input type="text" id="datetimepicker2" class="form-control" placeholder="Day, Month, Year" data-ng-model="dateFilter"/>
       </div>
         
         {{dateFilter}}
-    
+    </span>
     <br>
     
-    <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="resetGraph()">RESET   <span class="glyphicon glyphicon-refresh"></span></a>
-        </span>
-</div>
+    <input type="reset" class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="resetGraph()"/>
+
+</div></form>
 
 <hr/>
     

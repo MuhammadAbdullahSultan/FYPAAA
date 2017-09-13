@@ -50,8 +50,33 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
             $scope.error = error;
         });
     
-    $('#datetimepicker1').datetimepicker();
-    $('#datetimepicker2').datetimepicker();
+    $(document).ready(function () {
+    
+
+        $('#datetimepicker1').datetimepicker({
+            viewMode: 'years'
+            
+        }); 
+        
+        $('#datetimepicker3').datetimepicker({
+            viewMode: 'years'
+        }); 
+        
+        
+        $("#datetimepicker1").on("dp.change", function() {
+
+        $scope.startDT = $("#datetimepicker1").val();
+
+    });
+        
+        $("#datetimepicker3").on("dp.change", function() {
+
+        $scope.endDT = $("#datetimepicker3").val();
+
+    });
+        
+});
+    
 
 }]);
 
