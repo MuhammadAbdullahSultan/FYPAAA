@@ -1,0 +1,178 @@
+<div class="page-header">
+   <h1>SEARCH DOWNTIME</h1>
+</div>
+
+<div>
+    
+   <div class="row">
+      <div class="form-group col-xs-6" id="sysList">
+         <label for="selectsys">Select system list:</label>
+         <select class="form-control" id="selectsys" data-ng-model="system">
+            <option value="" disabled="" selected="" style="display: none">List of systems</option>
+            <option ng-repeat="d in data">{{d.$id}}</option>
+         </select>
+      </div>
+      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
+         <label for="date">Select date</label>
+         <input type="text" class="form-control" id="date" placeholder="Day, Month, Year" onfocus="(this.type='date')" data-ng-model="date"/>
+      </div>
+   </div>
+   <div class="row">
+      <div class="form-group col-xs-6" id="equipList">
+         <label for="selectequ">Select equipment list:</label>
+         <select class="form-control" id="selectequ" data-ng-model="equipment">
+            <option value="" disabled="" selected="" style="display: none">List of Equipments</option>
+            <option data-ng-repeat="eq in allEquipments track by $index">{{eq}}</option>
+         </select>
+      </div>
+      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Type">
+         <label for="searchType">Search by Type:</label>
+         <select class="form-control" id="searchType" data-ng-model="type">
+            <option value="" disabled="" selected="" style="display: none">Select type of maintenance</option>
+            <option>Corrective Maintenance</option>
+            <option>Preventive Maintenance</option>
+            <option>Standby</option>
+         </select>
+      </div>
+   </div>
+    {{system}}
+    {{equipment}}
+   <hr/>
+   <div class="table-responsive">
+      <table class="table table-striped table-hover">
+         <tr>
+            <th id="system">System</th>
+            <th id="equipment">Equipment</th>
+            <th id="date">Date</th>
+            <th id="type">Type</th>
+         </tr>
+         <tr data-ng-repeat="d in allEquipments | filter: equipment">
+            <td headers = "system">{{allSystems[$index]}}</td>
+            <td headers = "equipment">{{d}}</td>
+            <td headers = "date">date</td>
+            <td headers = "type">Standby</td>
+         </tr>
+      </table>
+   </div>
+</div>
+
+<a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initialize()">VIEW REPORT   <span class="glyphicon glyphicon-eye-open"></span></a>
+    
+    <hr/>
+
+<div class="row border">
+    <span>
+    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="equipList">
+         <label for="date">Select Yearly Downtime</label>
+         <input type="text" class="form-control" id="date" placeholder="Year" onfocus="(this.type='date')" data-ng-model="date"/>
+      </div>
+    
+    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="equipList">
+         <label for="date">Select Monthly Downtime</label>
+         <input type="text" class="form-control" id="date" placeholder="Month, Year" onfocus="(this.type='date')" data-ng-model="date"/>
+      </div>
+    
+    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="equipList">
+         <label for="date">Select Day Downtime</label>
+         <input type="text" class="form-control" id="date" placeholder="Day, Month, Year" onfocus="(this.type='date')" data-ng-model="date"/>
+      </div>
+    
+    <br>
+    
+    <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="resetGraph()">RESET   <span class="glyphicon glyphicon-refresh"></span></a>
+        </span>
+</div>
+
+<hr/>
+    
+    <br><h5><b>SYSTEM</b></h5><br>
+    
+    <div class="row">
+                    
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrl">
+            
+            <div id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions"></canvas>
+            </div>
+            <br>
+            
+                <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()">EXPORT   <span class="glyphicon glyphicon-export"></span></a>
+            
+                <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()">PRINT   <span class="glyphicon glyphicon-print"></span></a>
+            
+            
+        </div>
+        
+        
+        
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrlPercent">
+            
+            <div id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent"></canvas>
+            </div>
+            <br>
+            
+            <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()">EXPORT   <span class="glyphicon glyphicon-export"></span></a>
+            
+            <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()">PRINT   <span class="glyphicon glyphicon-print"></span></a>
+            
+        </div>
+    
+    </div>
+    
+    <br>
+    
+    <hr/>
+    
+        <br><h5><b>EQUIPMENT</b></h5><br>
+
+    <div class="row">
+                    
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrl">
+            
+            <div id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions"></canvas>
+            </div>
+            <br>
+            
+                <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()">EXPORT   <span class="glyphicon glyphicon-export"></span></a>
+            
+                <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()">PRINT   <span class="glyphicon glyphicon-print"></span></a>
+            
+            
+        </div>
+        
+        
+        
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrlPercent">
+            
+            <div id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent"></canvas>
+            </div>
+            <br>
+            
+            <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()">EXPORT   <span class="glyphicon glyphicon-export"></span></a>
+            
+            <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()">PRINT   <span class="glyphicon glyphicon-print"></span></a>
+            
+        </div>
+    
+    </div>
+<br>
+
+
+<!--
+<table class="table table-striped table-hover">
+         <tr>
+            <th id="system">System</th>
+            <th id="equipment">Equipment</th>
+            <th id="date">Date</th>
+            <th id="type">Type</th>
+         </tr>
+         <tr data-ng-repeat="d in data[currentSystem].equipments">
+            <td headers = "system">{{data[currentSystem].$id}}</td>
+            <td headers = "equipment">{{d.equipment}}</td>
+            <td headers = "date">date</td>
+            <td headers = "type">Standby</td>
+         </tr>
+      </table>-->

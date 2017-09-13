@@ -1,0 +1,55 @@
+<div class="page-header">
+    <h1>ADD USERS </h1>
+    
+</div>
+<div ng-controller="createUserCtrl">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <label for="email">Email</label>
+            <input type="text" ng-model="email" class="form-control" id="email">
+
+            <label for="password">Password</label>
+            <input type="password" ng-model="password" class="form-control" id="password">
+        </div>
+    
+    </div>
+    
+
+  <br>
+    
+    <div class="row">
+        <div class="col-xs-5">
+              <button ng-click="createUser()" class="btn  cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active">Create User  <span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+    </div>
+
+  <br><br>
+
+<!--  <button ng-click="deleteUser()">Delete User</button>-->
+
+  <p ng-if="message"><strong>{{ message }}</strong></p>
+  <p ng-if="error" class="alert alert-warning">Error: <strong>{{ error }}</strong></p>
+    
+    <br>
+    
+    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-6">
+    <table class="table table-hover" id="borders">
+        <thead class="thead-inverse">
+                    <tr>
+                      <th>List of Existing Users</th>
+                    </tr>
+        </thead>
+                  <tbody>
+                    <tr>
+                      <td align="center">User 1</td>
+                    </tr>
+                    <tr>
+                      <td align="center">User 2</td>
+                    </tr>
+                    <tr>
+                      <td align="center">User 3</td>
+                    </tr>
+                  </tbody>
+    </table>
+    </div>
+</div>

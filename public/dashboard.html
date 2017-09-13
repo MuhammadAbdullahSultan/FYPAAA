@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp" data-ng-controller="loginCtrl">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>X-Fab Downtime Maintenance</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="assets/css/styles.min.css">
+      <link rel="stylesheet" href="assets/css/styles.css">
+       <link rel="stylesheet" href="assets/css/style.css">
+       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
+       <link rel="stylesheet" href="assets/css/noJS.css">
+   </head>
+   <body data-ng-controller="myCtrl as con">
+      <div class="row">
+         <nav class="navbar navbar-default navbar-fixed-top navigation-clean-button NavColor">
+            <div class="container">
+               <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><span><img src="assets/img/xfab.svg" class="img-responsive logoimage"></span> </a>
+                  <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+               </div>
+               <div class="collapse navbar-collapse" id="navcol-1">
+                  <ul class="nav navbar-nav nav-right"></ul>
+                  <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="login.html"><strong class="logintext">{{email}}</strong></a> 
+                      <button class="btn btn-default action-button logoutbutt" id="buttcolor" role="button" data-ng-click="signout(); ">Logout </button></p>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <br>
+      <br>
+      <br>
+      <hr/>
+      <div id="wrapper" class="container">
+         <div id="sidebar-wrapper" class="sidebarcolor">
+            <ul class="sidebar-nav">
+               <li class="sidebar-brand" style="color: black">
+                  <h3>WELCOME!</h3>
+               </li>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <li class="sidebar-brand">
+                        
+                        <a href="#!sdt" data-toggle="tooltip" title="Select search filter for downtime"><strong style="color:black">Dashboard</strong></a>
+                        <a href="#!input" data-toggle="tooltip" title="Create new system and equipment"><strong style="color:black">Create System</strong></a>
+                        
+                        <a href="#!create" data-toggle="tooltip" title="Create new users"><strong style="color:black">Add Users</strong></a>
+                         <a href="#!maintain" data-toggle="tooltip" title="Maintaining equipment"><strong style="color:black">Maintain Equipment</strong></a>
+                         <a href="#!downtime" data-toggle="tooltip" title="Maintaining downtime of system and equipment"><strong style="color:black">Manage Downtime</strong></a>
+                     </li>
+                  </div>
+               </div>
+            </ul>
+             
+         </div>
+          <br>
+          <br>
+         <div class="page-content-wrapper">
+            <div class="margin">
+                <a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle" style="border-radius: 20px"><i class="fa fa-bars"></i></a> SYSTEM DOWNTIME MONITORING
+                
+               <div class="row">
+                  <div class="col-md-12">
+                     <div data-ng-view>
+                     </div>
+                  </div>
+               </div>
+                
+                
+                
+            </div>
+         </div>
+         
+      </div>
+       
+       <br>
+       
+      <!-- Angular -->
+      <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+      <!-- Firebase -->
+      <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+      <!-- AngularFire -->
+      <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+      <script src="https://code.angularjs.org/1.6.4/angular-route.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.0.3/angular-chart.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/customdropdown.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <script src="assets/js/script.min.js"></script>
+      <script src="assets/js/app.js"></script>
+      <script src="home/home.js"></script>
+      <script src="dashboard/dashboard.js"></script>
+      <script src="input/input.js"></script>
+      <script src="create/create.js"></script>
+       <script src="downtime/downtime.js"></script>
+        <script src="maintain/maintain.js"></script>
+        <script src="Searchdowntime/sdt.js"></script>
+      <script src="assets/js/modernizr.custom.79639.js"></script>
+       <script>
+       function DropDown(el) {
+				this.dd = el;
+				this.placeholder = this.dd.children('span');
+				this.opts = this.dd.find('ul.dropdown > li');
+				this.val = '';
+				this.index = -1;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						return false;
+					});
+
+					obj.opts.on('click',function(){
+						var opt = $(this);
+						obj.val = opt.text();
+						obj.index = opt.index();
+						obj.placeholder.text('Gender: ' + obj.val);
+					});
+				},
+				getValue : function() {
+					return this.val;
+				},
+				getIndex : function() {
+					return this.index;
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-1').removeClass('active');
+				});
+
+			});
+       </script>
+       
+      
+       
+   </body>      
+    
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    
+</html>
