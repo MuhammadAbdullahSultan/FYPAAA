@@ -29,10 +29,6 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
         }).catch(function(error) {
             $scope.error = error;
         });
-    
-    $scope.onSystemChange = function(item){
-       
-  }
    
     $(document).ready(function () {
     var date = new Date();
@@ -41,44 +37,42 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
     var currentYear = date.getFullYear();
 
      
-    $('#yearPicker').datepicker({
-        maxDate: new Date(currentYear, currentMonth, currentDate),
-        changeYear: true,
-        showButtonPanel: true,
-        dateFormat: 'yy',
-        onClose: function(dateText, inst) { 
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            $(this).datepicker('setDate', new Date(year, 1));
-            $(".date-picker-year").focus(function () {
-         $(".ui-datepicker-month").hide();
-         $(".ui-datepicker-date").hide();
-        });
-        }
-    });
-     
-        
-    $('#monthPicker').datepicker({
-        maxDate: new Date(currentYear, currentMonth, currentDate),
-        changeYear: true,
-        showButtonPanel: true,
-        dateFormat: 'yy',
-        onClose: function(dateText, inst) { 
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            $(this).datepicker('setDate', new Date(year, 1));
-            $(".date-picker-year").focus(function () {
-                $(".ui-datepicker-date").hide();
-            });
-        }
-    });
-        
-    $('#datepicker').datepicker({
-    minDate: new Date(currentYear, currentMonth, currentDate),
-    dateFormat: 'dd-mm-yy'
-    });
+//    $('#yearPicker').datepicker({
+//        maxDate: new Date(currentYear, currentMonth, currentDate),
+//        changeYear: true,
+//        showButtonPanel: true,
+//        dateFormat: 'yy',
+//        onClose: function(dateText, inst) { 
+//            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+//            $(this).datepicker('setDate', new Date(year, 1));
+//            $(".date-picker-year").focus(function () {
+//         $(".ui-datepicker-month").hide();
+//         $(".ui-datepicker-date").hide();
+//        });
+//        }
+//    });
 });
     
+    $(function() {
+	$('.monthYearPicker').datepicker({
+		changeMonth: true,
+		changeYear: true,
+		showButtonPanel: true,
+		dateFormat: 'MM yy'
+	}).focus(function() {
+		var thisCalendar = $(this);
+		$('.ui-datepicker-calendar').detach();
+		$('.ui-datepicker-close').click(function() {
+        var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+        var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+        thisCalendar.datepicker('setDate', new Date(year, month, 1));
+                });
+            });
+        });
     
+   
 }]);
+    
 
 //app.filter("onChange" , function () {
 //    

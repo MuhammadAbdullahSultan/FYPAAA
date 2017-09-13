@@ -16,12 +16,13 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
      $scope.allSystems = [];
     
     $scope.manageDowntime = function () {
+        
         var doesExist = false;
         angular.forEach ($scope.data , function (d) {
         angular.forEach (d.equipments, function (e) {
         })
     });
-        firebase.database().ref('downtime/' + $scope.equipment + '/downtime').child($scope.equipment + '(' + 1 + ')').set({
+        firebase.database().ref('downtime/' + $scope.equipment + '/downtime').push({
             equipment: $scope.equipment,
             type : $scope.type,
             start: $scope.startDT,
@@ -48,35 +49,28 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         }).catch(function(error) {
             $scope.error = error;
         });
-    function addZero(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-}
-    $(document).ready(function () {
-    var date = new Date();
-    var currentMonth = date.getMonth();
-    var currentDate = date.getDate();
-    var currentYear = date.getFullYear();
-        
-    var h = addZero(date.getHours());
-    var m = addZero(date.getMinutes());
     
-
-    $('#datepicker1').datepicker({
-        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'dd-mm-yy',
-        minDate: new Date(currentYear, currentMonth, currentDate, h, m),
-        dateFormat: 'yy-mm-dd ' + h + ':' + m
-    });
+    $scope.dateTimeStart = function () {
+    var d = new Date();
         
-    $('#datepicker2').datepicker({
-    minDate: new Date(currentYear, currentMonth, currentDate),
-    dateFormat: 'dd-mm-yy',
-    dateFormat: 'yy-mm-dd ' + h + ':' + m
-    });
-});
+        var year = d.getYear();
+        var month = d.getMonth();
+        var day = d.getDay();
+        
+        var hours = d.getHours ();
+        var minutes = d.getMinutes ();
+        
+        
+//    var n = d.toString();
+//    $scope.startDT = n;
+    }
+    
+    $scope.dateTimeEnd = function () {
+    var d = new Date();
+    var n = d.toString();
+    $scope.endDT = n;
+    }
+    
     
     
     
