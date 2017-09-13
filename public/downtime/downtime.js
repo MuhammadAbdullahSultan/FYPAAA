@@ -49,6 +49,23 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
             $scope.error = error;
         });
     
+    $(document).ready(function () {
+    var date = new Date();
+    var currentMonth = date.getMonth();
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
+
+    $('#datepicker1').datepicker({
+        minDate: new Date(currentYear, currentMonth, currentDate),
+        dateFormat: 'yy-mm-dd'
+    });
+        
+    $('#datepicker2').datepicker({
+    minDate: new Date(currentYear, currentMonth, currentDate),
+    dateFormat: 'yy-mm-dd'
+    });
+});
+    
     
 }]);
 

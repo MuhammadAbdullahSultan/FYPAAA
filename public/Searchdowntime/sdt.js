@@ -24,8 +24,6 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
                 angular.forEach (d.equipments, function (e) {
                     $scope.allSystems.push(d.$id);
                     $scope.allEquipments.push(e.equipment);
-                    console.log($scope.allEquipments);
-                    console.log($scope.allSystems);
                 })
             });
         }).catch(function(error) {
