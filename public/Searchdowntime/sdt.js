@@ -30,12 +30,24 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
             $scope.error = error;
         });
    
+    
     $(document).ready(function () {
     var date = new Date();
     var currentMonth = date.getMonth();
     var currentDate = date.getDate();
     var currentYear = date.getFullYear();
 
+        $('#datetimepicker2').datetimepicker({
+            viewMode: 'years'
+        }); 
+        $('#datetimepicker10').datetimepicker({
+                viewMode: 'years',
+                format: 'MM/YYYY'
+            });
+        $('#datetimepicker11').datetimepicker({
+                viewMode: 'years',
+                format: 'YYYY'
+            });
      
 //    $('#yearPicker').datepicker({
 //        maxDate: new Date(currentYear, currentMonth, currentDate),
