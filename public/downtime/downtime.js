@@ -65,34 +65,19 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     
 
     $('#datepicker1').datepicker({
-<<<<<<< HEAD
         minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'dd-mm-yy'
-=======
+        dateFormat: 'dd-mm-yy',
         minDate: new Date(currentYear, currentMonth, currentDate, h, m),
         dateFormat: 'yy-mm-dd ' + h + ':' + m
->>>>>>> origin/master
     });
         
     $('#datepicker2').datepicker({
     minDate: new Date(currentYear, currentMonth, currentDate),
-<<<<<<< HEAD
-    dateFormat: 'dd-mm-yy'
-=======
+    dateFormat: 'dd-mm-yy',
     dateFormat: 'yy-mm-dd ' + h + ':' + m
->>>>>>> origin/master
     });
 });
     
-//    function myFunction() {
-//    var x = document.createElement("INPUT");
-//    x.setAttribute("type", "datetime-local");
-//    document.body.appendChild(x);
-//}
-    
-    function myFunction() {
-    var x = document.getElementById("myLocalDate").value;
-}
     
     
 }]);
