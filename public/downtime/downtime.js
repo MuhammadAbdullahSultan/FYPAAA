@@ -21,7 +21,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         angular.forEach (d.equipments, function (e) {
         })
     });
-        firebase.database().ref('downtime/' + $scope.equipment + '/downtime').child($scope.equipment).set({
+        firebase.database().ref('downtime/' + $scope.equipment + '/downtime').child($scope.equipment + '(' + 1 + ')').set({
             equipment: $scope.equipment,
             type : $scope.type,
             start: $scope.startDT,
@@ -48,23 +48,51 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         }).catch(function(error) {
             $scope.error = error;
         });
-    
+    function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
     $(document).ready(function () {
     var date = new Date();
     var currentMonth = date.getMonth();
     var currentDate = date.getDate();
     var currentYear = date.getFullYear();
+        
+    var h = addZero(date.getHours());
+    var m = addZero(date.getMinutes());
+    
 
     $('#datepicker1').datepicker({
+<<<<<<< HEAD
         minDate: new Date(currentYear, currentMonth, currentDate),
         dateFormat: 'dd-mm-yy'
+=======
+        minDate: new Date(currentYear, currentMonth, currentDate, h, m),
+        dateFormat: 'yy-mm-dd ' + h + ':' + m
+>>>>>>> origin/master
     });
         
     $('#datepicker2').datepicker({
     minDate: new Date(currentYear, currentMonth, currentDate),
+<<<<<<< HEAD
     dateFormat: 'dd-mm-yy'
+=======
+    dateFormat: 'yy-mm-dd ' + h + ':' + m
+>>>>>>> origin/master
     });
 });
+    
+//    function myFunction() {
+//    var x = document.createElement("INPUT");
+//    x.setAttribute("type", "datetime-local");
+//    document.body.appendChild(x);
+//}
+    
+    function myFunction() {
+    var x = document.getElementById("myLocalDate").value;
+}
     
     
 }]);
