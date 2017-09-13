@@ -33,6 +33,51 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
     $scope.onSystemChange = function(item){
        
   }
+   
+    $(document).ready(function () {
+    var date = new Date();
+    var currentMonth = date.getMonth();
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
+
+     
+    $('#yearPicker').datepicker({
+        maxDate: new Date(currentYear, currentMonth, currentDate),
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'yy',
+        onClose: function(dateText, inst) { 
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, 1));
+            $(".date-picker-year").focus(function () {
+         $(".ui-datepicker-month").hide();
+         $(".ui-datepicker-date").hide();
+        });
+        }
+    });
+     
+        
+    $('#monthPicker').datepicker({
+        maxDate: new Date(currentYear, currentMonth, currentDate),
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'yy',
+        onClose: function(dateText, inst) { 
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, 1));
+            $(".date-picker-year").focus(function () {
+                $(".ui-datepicker-date").hide();
+            });
+        }
+    });
+        
+    $('#datepicker').datepicker({
+    minDate: new Date(currentYear, currentMonth, currentDate),
+    dateFormat: 'dd-mm-yy'
+    });
+});
+    
+    
 }]);
 
 //app.filter("onChange" , function () {

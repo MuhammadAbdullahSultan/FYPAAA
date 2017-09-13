@@ -57,12 +57,12 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 
     $('#datepicker1').datepicker({
         minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'dd-mm-yy'
     });
         
     $('#datepicker2').datepicker({
     minDate: new Date(currentYear, currentMonth, currentDate),
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'dd-mm-yy'
     });
 });
     
