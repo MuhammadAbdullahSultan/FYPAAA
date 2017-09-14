@@ -10,25 +10,63 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
-    'use strict';
     
-     var modal = document.getElementById('myModal');
-     var btn = document.getElementById("myBtn");
-     var span = document.getElementsByClassName("close")[0];
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+    'use strict';
+    $scope.message;
+    $scope.writeUserData = function () {
+        var doesExist = false;
+        angular.forEach ($scope.data , function (d) {
+        angular.forEach (d.equipments, function (e) {
+            console.log(e);
+            if ($scope.equipment == e.equipment) {
+                $scope.error = "Cannot add the same equipment again";
+                doesExist = true;
             }
+        })
+    });
+        if(doesExist) {
+            return;
         }
+        
+        if (document.getElementById('equi').value == "") {
+            alert("Please fill out the equipment");
+        }
+        
+        
+        else {
+            $scope.message = "The equipment has been added to the system"
+        }
+        firebase.database().ref('data/' + $scope.system + '/equipments').child($scope.equipment).set({
+            equipment: $scope.equipment,
+            description: $scope.desc
+        });
+};
+    
+    
+        var ref = firebase.database().ref();
+        var data = ref.child("data");
+        var list = $firebaseArray(data);
+        
+        list.$loaded().then(function(data) {
+            $scope.data = data;
+            console.log($scope.data);
+        }).catch(function(error) {
+            $scope.error = error;
+        });
+    
+    angular.forEach ($scope.data , function (d) {
+        angular.forEach (d.equipments, function (e) {
+            if ($scope.equipmentt == e.equipment) {
+                $scope.error = "Cannot add the same equipment again";
+            }
+        })
+    });
+    
     
 }]);
-
+    $('#myModal').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop fade in').remove();
 function edit_row(no)
 {
  document.getElementById("edit_button"+no).style.display="none";

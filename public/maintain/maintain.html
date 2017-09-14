@@ -1,11 +1,15 @@
 <div class="page-header">
     <h1>MAINTAIN EQUIPMENT </h1>
 </div>
-<div data-ng-app="maintain" data-ng-controller = "maintainCtrl">
+<div>
     
-    <script type="text/javascript" src="maintain.js"></script>
     
-  <p>This page maintains all the system and equipment.</p>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addEquipment" data-backdrop="false">+</button>
+        </div>
+    </div>
+    <br/>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <table class="table table-hover">
     <thead class = "thead-inverse"> 
@@ -67,3 +71,67 @@
 
     
     
+<!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="addEquipment">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Add Equipment</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            
+        <div class="form-group col-xs-6">
+            
+            <h4>Equipment</h4>
+            <input type="text" class="form-control input-lg" id="equi" placeholder="Insert equipment here" data-ng-model="equipment" required>
+            
+        </div>
+            
+            <div class=" form-group col-xs-6">
+            <div class="form-group">
+              <h4>Description</h4>
+              <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="textArea" style="margin: 0px -2.84375px 0px 0px; height: 50px; width: 200px;" required data-ng-model="desc"></textarea>
+              </div>
+            </div>
+        </div>
+        
+        
+        
+        
+    </div>
+    <div class="row">
+        <div class="form-group col-xs-6">
+            
+            <h4>System</h4>
+            <input type="text" class="form-control input-lg" id="sys" placeholder="Insert system here" data-ng-model="system" required>
+            <br>
+              
+        </div>
+        
+    </div>
+          
+          <div class="alert alert-dismissible alert-warning" data-ng-if="error">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <h4>Warning!</h4>
+              <p>{{error}}</p>
+            </div>
+
+            <div class="alert alert-dismissible alert-success" data-ng-if="message">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Success</strong> {{message}}.
+            </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-ng-click="writeUserData()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@
 /*global angular */
 // DEFINING ANGULAR MODULE ngCookies
 /*jshint sub:true*/
-var app = angular.module('myApp', ['ngRoute', 'chart.js', 'home', 'dashboard', 'input', 'downtime', 'maintain', 'create', 'sdt', 'firebase']);
+var app = angular.module('myApp', ['ngRoute', 'chart.js', 'home', 'dashboard', 'downtime', 'maintain', 'create', 'sdt', 'firebase']);
 var config = {
     apiKey: "AIzaSyDlZwVsbxI6V161f7ZcyCsy_mg4-GRFwxo",
     authDomain: "xfab-downtime.firebaseapp.com",
