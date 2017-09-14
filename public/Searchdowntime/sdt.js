@@ -12,24 +12,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
     'use strict';
     
-    $scope.allSystems = [];
-    $scope.allEquipments = [];
-    var ref = firebase.database().ref();
-        var data = ref.child("data");
-        var list = $firebaseArray(data);
-        
-        list.$loaded().then(function(data) {
-            $scope.data = data;
-            angular.forEach ($scope.data , function (d) {
-                angular.forEach (d.equipments, function (e) {
-                    $scope.allSystems.push(d.$id);
-                    $scope.allEquipments.push(e.equipment);
-                })
-            });
-        }).catch(function(error) {
-            $scope.error = error;
-        });
-
+    
     
     $(document).ready(function () {
     
@@ -37,10 +20,12 @@ app.controller('sdtCtrl', ['$scope', '$firebaseObject', '$firebaseArray', functi
         $('#datetimepicker2').datetimepicker({
             viewMode: 'years'
         }); 
+        
         $('#datetimepicker10').datetimepicker({
                 viewMode: 'years',
                 format: 'MM/YYYY'
             });
+        
         $('#datetimepicker11').datetimepicker({
                 viewMode: 'years',
                 format: 'YYYY'
