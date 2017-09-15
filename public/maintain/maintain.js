@@ -18,7 +18,7 @@ app.filter("offset", function () {
 });
 
 app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
-    $scope.unitsInPage = 10;
+    $scope.unitsInPage = 6;
 	$scope.currentPage = 0;
     'use strict';
     $scope.message;
