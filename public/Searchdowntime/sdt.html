@@ -1,40 +1,6 @@
 <div class="page-header">
-   <h1>SEARCH DOWNTIME</h1>
-</div>
-
-
-<form>
-<div class="row">
-    <span class="col-xs-12 border">
-    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 date" id="equipList">
-         <label for="date">Selection of Year</label>
-         <input type="text" id="datetimepicker11" class="form-control" placeholder="Year" data-ng-model="yearFilter"/>
-      </div>
-        {{yearFilter}}
-    
-    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 date" id="equipList">
-         <label for="date">Selection of Month</label>
-         <input type="text" class="form-control" id="datetimepicker10" placeholder="Month, Year" data-ng-model="monthFilter"/>
-      </div>
-        
-        {{monthFilter}}
-    
-    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 date" id="equipList">
-         <label for="date">Select Day Downtime</label>
-         <input type="text" id="datetimepicker2" class="form-control" placeholder="Day, Month, Year" data-ng-model="dateFilter"/>
-      </div>
-        
-        {{dateFilter}}
-        
-        <br>
-        
-        <input type="reset" class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="resetGraph()"/>
-    </span>
-
-</div></form>
-
-<hr/>
-    
+   <h1>DASHBOARD</h1>
+</div>    
     <br><h5><b>SYSTEM</b></h5><br>
     
     <div class="row">
@@ -109,6 +75,36 @@
     
     </div>
 <br>
+
+<form>
+<div class="row">
+    <span class="col-xs-12 border">
+    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 date" id="equipList">
+         <label for="date">Selection of Year</label>
+         <input type="text" id="datetimepicker11" class="form-control" placeholder="Year" data-ng-model="yearFilter"/>
+      </div>
+        {{yearFilter}}
+    
+    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 date" id="equipList">
+         <label for="date">Selection of Month</label>
+         <input type="text" class="form-control" id="datetimepicker10" placeholder="Month, Year" data-ng-model="monthFilter"/>
+      </div>
+        
+        {{monthFilter}}
+    
+    <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 date" id="equipList">
+         <label for="date">Select Day Downtime</label>
+         <input type="text" id="datetimepicker2" class="form-control" placeholder="Day, Month, Year" data-ng-model="dateFilter"/>
+      </div>
+        
+        {{dateFilter}}
+        
+        <br>
+        
+        <input type="reset" class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="resetGraph()"/>
+    </span>
+
+</div></form>
 
 
 

@@ -2,10 +2,15 @@
     <h1>MANAGE DOWNTIME </h1>
 </div>
 <div data-ng-app="downtime">
-
+<div class="row">
+        
+    </div>
 <div class="row">
     
-     <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button type="button" class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-toggle="modal" data-target="#manageDT" data-backdrop="false">Manage Downtime  <span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+    
       <div class="form-group col-xs-6" id="sysList">
          <label for="selectsys">Select system list:</label>
          <select class="form-control" id="selectsys" data-ng-model="system">
@@ -17,8 +22,6 @@
          <label for="date">Select date</label>
          <input type="text" class="form-control" id="date" placeholder="Day, Month, Year" onfocus="(this.type='date')" data-ng-model="date"/>
       </div>
-   </div>
-   <div class="row">
       <div class="form-group col-xs-6" id="equipList">
          <label for="selectequ">Select equipment list:</label>
          <select class="form-control" id="selectequ" data-ng-model="equipment">
@@ -35,7 +38,6 @@
             <option>Standby</option>
          </select>
       </div>
-   </div>
     {{system}}
     {{equipment}}
    <hr/>
@@ -57,62 +59,79 @@
    </div>
 </div>
 
-<a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initialize()">VIEW REPORT   <span class="glyphicon glyphicon-eye-open"></span></a>
+<a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button">VIEW REPORT<span class="glyphicon glyphicon-eye-open"></span></a>
     
-    <div class="col-xs-12">
+    
+</div>
+    
 
-    <div class="form-group col-xs-6 col-xs-offset-3" id="equipList">
-      <label for="selectequ">Select Equipment</label>
-       <select class="form-control" id="selectequ" data-ng-model="equipment" 
-          >
-        <option data-ng-repeat="eq in allEquipments" >{{eq}}</option>
-      </select>
-        
-        {{equipment}}
-    </div>
-        
-        <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3" id="Type">
-         <label for="searchType">Search by Type:</label>
-         <select class="form-control" id="searchType" data-ng-model="type">
-            <option value="" disabled="" selected="" style="display: none">Select type of maintenance</option>
-            <option>Corrective Maintenance</option>
-            <option>Preventive Maintenance</option>
-            <option>Standby</option>
-         </select>
+
+
+
+
+<div class="modal fade" id="manageDT">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Start Downtime</h4>
       </div>
-        
-        {{type}}
-        
-    </div>
-</div>
-    
-<div class="row">
-    
-    <div class="form-group col-xs-6 col-xs-offset-3">
-      <label for="date">Start of Downtime</label>
-<!--        <input type="datetime-local" id="datetimepicker1" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT"/>-->
-        
-                <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT" id="datetimepicker1" />
-    </div>
-        {{startDT}}
-    <div class="form-group col-xs-6 col-xs-offset-3">
-      <label for="date">End of Downtime</label>
-        <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="endDT" id="datetimepicker3" />
-        {{endDT}}
-    </div>
-        
-    
-    
-    </div>
-    
-<div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="central">
-            <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="manageDowntime()">MANAGE   <span class="glyphicon glyphicon-tasks"></span></a>
-        </div>
-    </div>
-    
-</div>
+      <div class="modal-body">
+            <div class="row">
+            <div class="col-xs-12">
 
+            <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
+              <label for="selectequ">Select Equipment</label>
+               <select class="form-control" id="selectequ" data-ng-model="equipment" 
+                  >
+                <option value="" disabled="" selected="" style="display: none">Select Equipment</option>
+                <option data-ng-repeat="eq in allEquipments" >{{eq}}</option>
+              </select>
+
+                {{equipment}}
+            </div>
+
+                <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Type">
+                 <label for="searchType">Search by Type:</label>
+                 <select class="form-control" id="searchType" data-ng-model="type">
+                    <option value="" disabled="" selected="" style="display: none">Select type of maintenance</option>
+                    <option>Corrective Maintenance</option>
+                    <option>Preventive Maintenance</option>
+                    <option>Standby</option>
+                 </select>
+              </div>
+
+                {{type}}
+                
+                <div class="form-group col-xs-6">
+              <label for="date">Start of Downtime</label>
+        <!--        <input type="datetime-local" id="datetimepicker1" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT"/>-->
+
+                        <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT" id="datetimepicker1" />
+            </div>
+                {{startDT}}
+            <div class="form-group col-xs-6">
+              <label for="date">End of Downtime</label>
+                <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="endDT" id="datetimepicker3" data-ng-change="refreshTime()"/>
+                {{endDT}}
+            </div>
+
+            </div>
+
+            
+
+
+
+        </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-ng-click="manageDowntime()"><span class="glyphicon glyphicon-plus"></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+    
 
     
     
