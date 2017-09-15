@@ -38,7 +38,8 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         }
         firebase.database().ref('AllEquipments/' + $scope.equipment + '/equipments').child($scope.equipment).set({
             system: $scope.system,
-            description: $scope.desc
+            description: $scope.desc,
+            group: $scope.group
             
         });
 };
