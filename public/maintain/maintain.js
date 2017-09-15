@@ -36,31 +36,37 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         else {
             $scope.message = "The equipment has been added to the system"
         }
-        firebase.database().ref('data/' + $scope.system + '/equipments').child($scope.equipment).set({
-            equipment: $scope.equipment,
+        firebase.database().ref('AllEquipments/' + $scope.equipment + '/equipments').child($scope.equipment).set({
+            system: $scope.system,
             description: $scope.desc
+            
         });
 };
     
     
         var ref = firebase.database().ref();
-        var data = ref.child("data");
+        var data = ref.child("AllEquipments");
         var list = $firebaseArray(data);
         
         list.$loaded().then(function(data) {
             $scope.data = data;
             console.log($scope.data);
-        }).catch(function(error) {
-            $scope.error = error;
-        });
-    
-    angular.forEach ($scope.data , function (d) {
-        angular.forEach (d.equipments, function (e) {
+            
+            angular.forEach ($scope.data , function (d) {
+        $scope.equipment1 = d.$id;
+        angular.forEach (d.system, function (e) {
+            console.log(e);
+            $scope.system1 = e
             if ($scope.equipmentt == e.equipment) {
                 $scope.error = "Cannot add the same equipment again";
             }
         })
     });
+        }).catch(function(error) {
+            $scope.error = error;
+        });
+    
+    
     
     
 }]);
