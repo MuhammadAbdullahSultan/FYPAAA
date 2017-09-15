@@ -9,8 +9,17 @@ app.config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
+app.filter("offset", function () {
+	return function (input, start) {
+        if (!input || !input.length) { return; }
+		start = parseInt(start, 10);
+		return input.slice(start);
+	};
+});
+
 app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
-    
+    $scope.unitsInPage = 10;
+	$scope.currentPage = 0;
     'use strict';
     $scope.message;
     $scope.writeUserData = function () {
@@ -52,7 +61,7 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         list.$loaded().then(function(data) {
             $scope.data = data;
             console.log($scope.data);
-            
+            console.log($scope.data.length);
             angular.forEach ($scope.data , function (d) {
         $scope.equipment1 = d.$id;
         angular.forEach (d.system, function (e) {
@@ -67,7 +76,55 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
             $scope.error = error;
         });
     
+    //Count how many pages needed to display all students
+    // return 10 in this case: students.length = 50 & unitsInPage = 5
+	$scope.pageCount = function() {
+		return Math.ceil($scope.data.length/$scope.unitsInPage) -1;
+	};
     
+    //setting number for pagination button to be display
+	$scope.range = function () {
+		var rangeSize = 3;
+		var numForPagiBtns = [];
+		var start = $scope.currentPage;
+        var i;
+        if(rangeSize > $scope.pageCount())
+            {
+                rangeSize = $scope.pageCount() + 1;
+            }
+		if (start > $scope.pageCount() - rangeSize ) {
+			start = $scope.pageCount() - rangeSize + 1;
+		}
+		for (i=start; i<start + rangeSize; i++) {
+			numForPagiBtns.push(i);
+		}
+        console.log(numForPagiBtns);
+		return numForPagiBtns;
+	};
+    
+    
+    //Set the current page to the number pressed by user in pagination
+	$scope.setPage = function(n) { 
+		$scope.currentPage = n; 
+	}; 
+    
+    //Some navigating function for pagination 
+	$scope.prevPage = function() {
+		if ($scope.currentPage > 0) {
+			$scope.currentPage--;
+		}
+	};
+	$scope.prevPageDisabled = function() {
+		return $scope.currentPage === 0 ? "disabled" : "";
+	};
+	$scope.nextPage = function() {
+		if ($scope.currentPage < $scope.pageCount()) {
+			$scope.currentPage++;
+		}
+	};
+	$scope.nextPageDisabled = function() {
+		return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
+	};
     
     
 }]);
@@ -89,10 +146,10 @@ function edit_row(no)
  var age_data=age.innerHTML;
  var group_data=group.innerHTML;
 	
- name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"'>";
- country.innerHTML="<input type='text' id='country_text"+no+"' value='"+country_data+"'>";
- age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"'>";
- group.innerHTML="<input type='text' id='group_text"+no+"'value='"+group_data+"'>";
+ name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"' data-ng-model='editEquipment'>";
+ country.innerHTML="<input type='text' id='country_text"+no+"' value='"+country_data+"' data-ng-model='editSystem'>";
+ age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"' data-ng-model='edit'>";
+ group.innerHTML="<input type='text' id='group_text"+no+"'value='"+group_data+"' data-ng-model='editEquipment'>";
 }
 
 function save_row(no)

@@ -23,7 +23,7 @@
     </thead>
     <tbody>
       
-<tr id="row1" data-ng-repeat = "equipments in data track by $index">
+<tr id="row1" data-ng-repeat = "equipments in data | offset: currentPage*unitsInPage | limitTo: unitsInPage track by $index">
 <td id="name_row1">{{equipments.$id}}</td>
 <td id="country_row1">{{equipments.equipments[equipments.$id].system}}</td>
 <td id="age_row1">{{equipments.equipments[equipments.$id].description}}</td>
@@ -37,12 +37,30 @@
 </td>
 </tr>
 
-
-<tr>
-
-</tr>
     
     </tbody>
+      <tfoot>
+    <tr>
+    <td colspan="2">
+        <ul class="pagination">
+            <li data-ng-class="prevPageDisabled()">
+                <a href="" data-ng-click="prevPage()">Prev</a>
+            </li>
+
+            <li data-ng-repeat="n in range()" 
+                data-ng-class="{active: n == currentPage}"
+                data-ng-click="setPage(n)">
+                     <a href="">{{n+1}}</a>
+            </li>
+
+            <li data-ng-class="nextPageDisabled()">
+                <a href = "" data-ng-click="nextPage()">Next</a>
+            </li>
+        </ul>
+    </td>
+    </tr>
+</tfoot>
+    
       </table>
     </div>
     
