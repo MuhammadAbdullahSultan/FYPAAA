@@ -14,6 +14,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     
      $scope.allEquipments = [];
      $scope.allSystems = [];
+     $scope.allDT = [];
     
     $scope.manageDowntime = function () {
         
@@ -22,18 +23,38 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         angular.forEach (d.equipments, function (e) {
         })
     });
-        firebase.database().ref('downtime/' + $scope.equipment + '/downtime').push({
-            equipment: $scope.equipment,
+        firebase.database().ref('downtime/' + $scope.addEquipment).push({
+            equipment: $scope.addEquipment,
             type : $scope.type,
             start: $scope.startDT,
             end: $scope.endDT
         });
+        
+        var key = firebase.database().ref.key;
+        console.log(key);
+        
 };
     
         var ref = firebase.database().ref();
         var data = ref.child("AllEquipments");
         var list = $firebaseArray(data);
         
+        // for adding
+        list.$loaded().then(function(data) {
+                $scope.add = data;
+                angular.forEach ($scope.add , function (d) {
+
+                  $scope.allSystems.push(d.$id);  
+
+                    angular.forEach (d.equipments, function (e) {
+                        $scope.allEquipments.push(e.equipment);
+                    })
+                });
+                console.log($scope.add);
+            }).catch(function(error) {
+                $scope.error = error;
+            });
+         // for searching
         list.$loaded().then(function(data) {
             $scope.data = data;
             angular.forEach ($scope.data , function (d) {
@@ -42,13 +63,14 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
                 
                 angular.forEach (d.equipments, function (e) {
                     $scope.allEquipments.push(e.equipment);
-                    console.log($scope.allEquipments);
                 })
             });
             console.log($scope.data);
         }).catch(function(error) {
             $scope.error = error;
         });
+    
+    //FOR DOWN TIME RETRIEVE
     
         var newref = firebase.database().ref();
         var dtdata = newref.child("downtime");
@@ -57,19 +79,15 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         dtlist.$loaded().then(function(dtdata) {
                 $scope.dtdata = dtdata;
                 angular.forEach ($scope.dtdata , function (d) {
-
-                  $scope.allSystems.push(d.$id);  
-
-                    angular.forEach (d.equipments, function (e) {
-                        $scope.allEquipments.push(e.equipment);
-                        console.log($scope.allEquipments);
-                    })
+                    $scope.allDT.push(d);
+                        console.log($scope.allDT);
                 });
-                console.log($scope.dtdata);
-                console.log($scope.dtdata);
+                
             }).catch(function(error) {
                 $scope.error = error;
             });
+            
+
     
     $(document).ready(function () {
     

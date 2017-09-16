@@ -49,11 +49,9 @@
             <th id="end">end</th>
             <th id="type">Type</th>
          </tr>
-         <tr data-ng-repeat="d in dtdata | filter: equipment">
-            <td headers = "equipment">{{d.$id}}</td>
-            <td headers = "start">{{d.val()}}</td>
-            <td headers = "end">{{d.downtime[$index].val()}}</td>
-            <td headers = "type">{{d.downtime}}</td>
+            <td headers = "start">{{d.start}}</td>
+            <td headers = "end">{{d.end}}</td>
+            <td headers = "type">{{d.type}}</td>
          </tr>
       </table>
    </div>
@@ -82,13 +80,13 @@
 
             <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
               <label for="selectequ">Select Equipment</label>
-               <select class="form-control" id="selectequ" data-ng-model="equipment" 
+               <select class="form-control" id="selectequ" data-ng-model="addEquipment" 
                   >
                 <option value="" disabled="" selected="" style="display: none">Select Equipment</option>
-                <option data-ng-repeat="eq in allEquipments track by $index" >{{eq}}</option>
+                <option data-ng-repeat="eq in add track by $index" >{{eq.$id}}</option>
               </select>
 
-                {{equipment}}
+                {{addEquipment}}
             </div>
 
                 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Type">
