@@ -126,6 +126,11 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 		return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
 	};
     
+    // Counting characters in text area.
+    
+    $("#textarea").keyup(function(){
+  $("#count").text("Characters left: " + (100 - $(this).val().length));
+});
     
 }]);
     $('#myModal').modal('hide');

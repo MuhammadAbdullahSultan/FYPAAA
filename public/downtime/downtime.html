@@ -15,7 +15,7 @@
          <label for="selectsys">Select system list:</label>
          <select class="form-control" id="selectsys" data-ng-model="system">
             <option value="" disabled="" selected="" style="display: none">List of systems</option>
-            <option ng-repeat="d in data">{{d.$id}}</option>
+            <option ng-repeat="d in data">{{d.equipments[d.$id].system}}</option>
          </select>
       </div>
       <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
@@ -26,7 +26,7 @@
          <label for="selectequ">Select equipment list:</label>
          <select class="form-control" id="selectequ" data-ng-model="equipment">
             <option value="" disabled="" selected="" style="display: none">List of Equipments</option>
-            <option data-ng-repeat="eq in allEquipments track by $index">{{eq}}</option>
+            <option data-ng-repeat="eq in data track by $index">{{eq.$id}}</option>
          </select>
       </div>
       <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Type">
@@ -49,8 +49,8 @@
             <th id="date">Date</th>
             <th id="type">Type</th>
          </tr>
-         <tr data-ng-repeat="d in allEquipments | filter: equipment">
-            <td headers = "system">{{allSystems[$index]}}</td>
+         <tr data-ng-repeat="d in data | filter: equipment">
+            <td headers = "system">{{d[$index]}}</td>
             <td headers = "equipment">{{d}}</td>
             <td headers = "date">date</td>
             <td headers = "type">Standby</td>
@@ -85,7 +85,7 @@
                <select class="form-control" id="selectequ" data-ng-model="equipment" 
                   >
                 <option value="" disabled="" selected="" style="display: none">Select Equipment</option>
-                <option data-ng-repeat="eq in allEquipments" >{{eq}}</option>
+                <option data-ng-repeat="eq in allEquipments track by $index" >{{eq}}</option>
               </select>
 
                 {{equipment}}

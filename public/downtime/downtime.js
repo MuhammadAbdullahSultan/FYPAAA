@@ -30,8 +30,8 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         });
 };
     
-    var ref = firebase.database().ref();
-        var data = ref.child("data");
+        var ref = firebase.database().ref();
+        var data = ref.child("AllEquipments");
         var list = $firebaseArray(data);
         
         list.$loaded().then(function(data) {
@@ -49,6 +49,26 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         }).catch(function(error) {
             $scope.error = error;
         });
+    
+        var newref = firebase.database().ref();
+        var dtdata = newref.child("downtime");
+        var dtlist = $firebaseArray(dtdata);
+    
+        dtlist.$loaded().then(function(dtdata) {
+                $scope.dtdata = dtdata;
+//                angular.forEach ($scope.dtdata , function (d) {
+//
+//                  $scope.allSystems.push(d.$id);  
+//
+//                    angular.forEach (d.equipments, function (e) {
+//                        $scope.allEquipments.push(e.equipment);
+//                        console.log($scope.allEquipments);
+//                    })
+//                });
+                console.log($scope.dtdata);
+            }).catch(function(error) {
+                $scope.error = error;
+            });
     
     $(document).ready(function () {
     
