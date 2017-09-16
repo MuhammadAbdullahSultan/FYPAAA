@@ -4,34 +4,37 @@
     <br>
 
     
-    <div class="row" style="margin-left: 50px">
-        <h5><b>SYSTEM</b></h5><br>
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrl">
+    <div class="row" style="margin-left: 5px, margin-right: 5px">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" data-ng-controller="myCtrl">
             
-            <div id="chartStyle">
-                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions"></canvas>
-            </div>
-            <br>
+            <div class="col-xs-12">
+            System Downtime (Hour)
             
                 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()"><span class="glyphicon glyphicon-export"></span></a>
             
                 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()"><span class="glyphicon glyphicon-print"></span></a>
+            </div>
             
-            
+            <div class="col-xs-12 searchtable" id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions"></canvas>
+            </div>
+        
         </div>
         
         
         
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrlPercent">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 " data-ng-controller="myCtrlPercent">
             
-            <div id="chartStyle">
+            <div class="col-xs-12">
+            System Downtime Percentage(%)
+                <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()"><span class="glyphicon glyphicon-export"></span></a>
+            
+                <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()"><span class="glyphicon glyphicon-print"></span></a>
+            </div>
+                
+            <div class="col-xs-12 searchtable" id="chartStyle">
                 <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent"></canvas>
             </div>
-            <br>
-            
-            <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()"><span class="glyphicon glyphicon-export"></span></a>
-            
-            <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()"><span class="glyphicon glyphicon-print"></span></a>
             
         </div>
     
@@ -43,37 +46,40 @@
     
         <br>
 
-    <div class="row" style="margin-left: 50px">
-                 <h5><b>EQUIPMENT</b></h5><br>   
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrl">
-            
-            <div id="chartStyle">
-                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions"></canvas>
-            </div>
-            <br>
-            
+    <div class="row" style="margin-left: 5px, margin-right: 5px">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" data-ng-controller="myCtrl">
+        
+                <div class="col-xs-12">
+
+                Equipment Downtime (Hour)
                 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()"><span class="glyphicon glyphicon-export"></span></a>
             
                 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()"><span class="glyphicon glyphicon-print"></span></a>
-            
-            
-        </div>
-        
-        
-        
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 searchtable" data-ng-controller="myCtrlPercent">
-            
-            <div id="chartStyle">
-                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent"></canvas>
             </div>
-            <br>
+            
+            <div class="col-xs-12 searchtable" id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions"></canvas>
+            </div>
+        </div>
+       
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" data-ng-controller="myCtrlPercent">
+            
+            <div class="col-xs-12">
+
+            Equipment Downtime Percentage (%) 
             
             <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()"><span class="glyphicon glyphicon-export"></span></a>
             
             <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()"><span class="glyphicon glyphicon-print"></span></a>
+                            
+            </div>
             
+            <div class="col-xs-12 searchtable" id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent"></canvas>
+            </div>        
         </div>
-    
+        
+        
     </div>
 <br>
 

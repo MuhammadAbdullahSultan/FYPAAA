@@ -48,7 +48,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.chartOptions = {
             title: {
                 display: true,
-                text: "Downtime of Equipment",
+                text: "",
                 fontSize: 20
             },
             
@@ -69,7 +69,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 xAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Name of Equipment'
+                        labelString: ''
                     },
                 gridLines: {
                     color: "rgba(0, 0, 0, 0)",
@@ -78,7 +78,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Downtime (Hour)'
+                        labelString: ''
                     },
                 gridLines: {
                     color: "rgba(0, 0, 0, 0)",
@@ -97,7 +97,7 @@ app.controller('myCtrlPercent', ['$scope', '$http', function ($scope, $http) {
         $scope.chartOptionsPercent = {
             title: {
                 display: true,
-                text: "Downtime Percentage of Equipment",
+                text: "",
                 fontSize: 20
             },
             legend: {
@@ -117,7 +117,7 @@ app.controller('myCtrlPercent', ['$scope', '$http', function ($scope, $http) {
                 xAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Name of Equipment'
+                        labelString: ''
                     },
                 gridLines: {
                     color: "rgba(0, 0, 0, 0)",
@@ -126,7 +126,7 @@ app.controller('myCtrlPercent', ['$scope', '$http', function ($scope, $http) {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Percentage of Downtime (%)'
+                        labelString: ''
                     },
                 gridLines: {
                     color: "rgba(0, 0, 0, 0)",
