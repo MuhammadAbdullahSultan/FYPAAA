@@ -56,15 +56,16 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     
         dtlist.$loaded().then(function(dtdata) {
                 $scope.dtdata = dtdata;
-//                angular.forEach ($scope.dtdata , function (d) {
-//
-//                  $scope.allSystems.push(d.$id);  
-//
-//                    angular.forEach (d.equipments, function (e) {
-//                        $scope.allEquipments.push(e.equipment);
-//                        console.log($scope.allEquipments);
-//                    })
-//                });
+                angular.forEach ($scope.dtdata , function (d) {
+
+                  $scope.allSystems.push(d.$id);  
+
+                    angular.forEach (d.equipments, function (e) {
+                        $scope.allEquipments.push(e.equipment);
+                        console.log($scope.allEquipments);
+                    })
+                });
+                console.log($scope.dtdata);
                 console.log($scope.dtdata);
             }).catch(function(error) {
                 $scope.error = error;

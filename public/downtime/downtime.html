@@ -15,7 +15,7 @@
          <label for="selectsys">Select system list:</label>
          <select class="form-control" id="selectsys" data-ng-model="system">
             <option value="" disabled="" selected="" style="display: none">List of systems</option>
-            <option ng-repeat="d in data">{{d.equipments[d.$id].system}}</option>
+            <option ng-repeat="d in dtdata">{{d.downtime[d.$id]}}</option>
          </select>
       </div>
       <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
@@ -26,7 +26,7 @@
          <label for="selectequ">Select equipment list:</label>
          <select class="form-control" id="selectequ" data-ng-model="equipment">
             <option value="" disabled="" selected="" style="display: none">List of Equipments</option>
-            <option data-ng-repeat="eq in data track by $index">{{eq.$id}}</option>
+            <option data-ng-repeat="eq in dtdata track by $index">{{eq.$id}}</option>
          </select>
       </div>
       <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Type">
@@ -44,16 +44,16 @@
    <div class="table-responsive">
       <table class="table table-striped table-hover">
          <tr>
-            <th id="system">System</th>
             <th id="equipment">Equipment</th>
-            <th id="date">Date</th>
+            <th id="start">start</th>
+            <th id="end">end</th>
             <th id="type">Type</th>
          </tr>
-         <tr data-ng-repeat="d in data | filter: equipment">
-            <td headers = "system">{{d[$index]}}</td>
-            <td headers = "equipment">{{d}}</td>
-            <td headers = "date">date</td>
-            <td headers = "type">Standby</td>
+         <tr data-ng-repeat="d in dtdata | filter: equipment">
+            <td headers = "equipment">{{d.$id}}</td>
+            <td headers = "start">{{d.val()}}</td>
+            <td headers = "end">{{d.downtime[$index].val()}}</td>
+            <td headers = "type">{{d.downtime}}</td>
          </tr>
       </table>
    </div>
