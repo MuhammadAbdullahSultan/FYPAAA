@@ -49,6 +49,8 @@
             <th id="end">end</th>
             <th id="type">Type</th>
          </tr>
+         <tr data-ng-repeat="d in allDT | filter: equipment track by $index">
+            <td headers = "equipment">{{d.equipment}}</td>
             <td headers = "start">{{d.start}}</td>
             <td headers = "end">{{d.end}}</td>
             <td headers = "type">{{d.type}}</td>
