@@ -11,7 +11,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
     'use strict';
-    
+    $scope.notEmptyOrNull = function(item){
+  return !(item.name_fr === null || item.name_fr.trim().length === 0)
+}
      $scope.allEquipments = [];
      $scope.allSystems = [];
      $scope.allDT = [];
@@ -79,8 +81,11 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         dtlist.$loaded().then(function(dtdata) {
                 $scope.dtdata = dtdata;
                 angular.forEach ($scope.dtdata , function (d) {
-                    $scope.allDT.push(d);
-                        console.log($scope.allDT);
+                    angular.forEach (d , function (e) {
+                    $scope.allDT.push(e);
+                    console.log(e);
+                    
+                })
                 });
                 
             }).catch(function(error) {

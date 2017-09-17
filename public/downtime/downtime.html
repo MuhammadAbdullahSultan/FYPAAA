@@ -24,22 +24,35 @@
       </div>
       <div class="form-group col-xs-6" id="equipList">
          <label for="selectequ">Select equipment list:</label>
-         <select class="form-control" id="selectequ" data-ng-model="equipment">
-            <option value="" disabled="" selected="" style="display: none">List of Equipments</option>
+         <select class="form-control" id="selectequ" data-ng-model="obj.equipment">
+            <option selected>All</option>
             <option data-ng-repeat="eq in dtdata track by $index">{{eq.$id}}</option>
          </select>
       </div>
+<!--
       <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Type">
          <label for="searchType">Search by Type:</label>
          <select class="form-control" id="searchType" data-ng-model="type">
-            <option value="" disabled="" selected="" style="display: none">Select type of maintenance</option>
+            <option selected>All</option>
             <option>Corrective Maintenance</option>
             <option>Preventive Maintenance</option>
             <option>Standby</option>
          </select>
+          
+          
       </div>
+-->
+    <br/>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <input type = "radio" data-ng-model = "type" value = "Corrective Maintenance" /><b>Corrective Maintenance</b><br/>
+        <input type = "radio" data-ng-model = "type" value = "Preventive Maintenance" /><b>Preventive Maintenance</b><br/>
+        <input type = "radio" data-ng-model = "type" value = "Standby" /><b>Standby</b><br/>
+        <input type = "radio" data-ng-model = "type"/><b>All</b><br/>
+    </div>
     {{system}}
-    {{equipment}}
+    {{obj.equipment}}
+    
+    </div>
    <hr/>
    <div class="table-responsive">
       <table class="table table-striped table-hover">
@@ -49,7 +62,7 @@
             <th id="end">end</th>
             <th id="type">Type</th>
          </tr>
-         <tr data-ng-repeat="d in allDT | filter: equipment track by $index">
+         <tr data-ng-repeat="d in allDT | filter: equipment | filter: type | filter: obj track by $index" data-ng-if="d != null">
             <td headers = "equipment">{{d.equipment}}</td>
             <td headers = "start">{{d.start}}</td>
             <td headers = "end">{{d.end}}</td>
@@ -57,7 +70,7 @@
          </tr>
       </table>
    </div>
-</div>
+
 
 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button">VIEW REPORT<span class="glyphicon glyphicon-eye-open"></span></a>
     
