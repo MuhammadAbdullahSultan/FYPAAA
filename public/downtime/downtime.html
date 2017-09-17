@@ -43,11 +43,12 @@
       </div>
 -->
     <br/>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <input type = "radio" data-ng-model = "type" value = "Corrective Maintenance" /><b>Corrective Maintenance</b><br/>
-        <input type = "radio" data-ng-model = "type" value = "Preventive Maintenance" /><b>Preventive Maintenance</b><br/>
-        <input type = "radio" data-ng-model = "type" value = "Standby" /><b>Standby</b><br/>
-        <input type = "radio" data-ng-model = "type"/><b>All</b><br/>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="Type">
+        <label for="type">Select type:</label><br/>
+        <input type = "radio" data-ng-model = "type" value = "Corrective Maintenance" /><b>Corrective Maintenance</b> &nbsp;
+        <input type = "radio" data-ng-model = "type" value = "Preventive Maintenance" /><b>Preventive Maintenance</b> &nbsp;
+        <input type = "radio" data-ng-model = "type" value = "Standby" /><b>Standby</b> &nbsp;
+        <input type = "radio" data-ng-model = "type"/><b>All</b>&nbsp; <br/> 
     </div>
     {{system}}
     {{obj.equipment}}
