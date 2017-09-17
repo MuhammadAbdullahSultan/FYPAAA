@@ -20,7 +20,8 @@
       </div>
       <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
          <label for="date">Select date</label>
-         <input type="text" class="form-control" id="date" placeholder="Day, Month, Year" onfocus="(this.type='date')" data-ng-model="date"/>
+<!--         <input type="text" class="form-control" id="date" placeholder="Day, Month, Year" onfocus="(this.type='date')" data-ng-model="start"/>-->
+          <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="start" id="datetimepickerSearch" />
       </div>
       <div class="form-group col-xs-6" id="equipList">
          <label for="selectequ">Select equipment list:</label>
@@ -50,8 +51,6 @@
         <input type = "radio" data-ng-model = "type" value = "Standby" /><b>Standby</b> &nbsp;
         <input type = "radio" data-ng-model = "type"/><b>All</b>&nbsp; <br/> 
     </div>
-    {{system}}
-    {{obj.equipment}}
     
     </div>
    <hr/>
@@ -63,7 +62,7 @@
             <th id="end">end</th>
             <th id="type">Type</th>
          </tr>
-         <tr data-ng-repeat="d in allDT | filter: equipment | filter: type | filter: obj track by $index" data-ng-if="d != null">
+         <tr data-ng-repeat="d in allDT | filter: equipment | filter: type | filter: obj | filter: start track by $index" data-ng-if="d != null">
             <td headers = "equipment">{{d.equipment}}</td>
             <td headers = "start">{{d.start}}</td>
             <td headers = "end">{{d.end}}</td>
@@ -115,7 +114,6 @@
                  </select>
                 </div>
 
-                {{type}}
                 
                 <div class="form-group col-xs-6">
               <label for="date">Start of Downtime</label>
@@ -123,11 +121,9 @@
 
                         <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT" id="datetimepicker1" />
             </div>
-                {{startDT}}
             <div class="form-group col-xs-6">
               <label for="date">End of Downtime</label>
                 <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="endDT" id="datetimepicker3" data-ng-change="refreshTime()"/>
-                {{endDT}}
             </div>
 
             </div>

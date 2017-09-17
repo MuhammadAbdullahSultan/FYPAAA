@@ -104,7 +104,12 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         
         $('#datetimepicker3').datetimepicker({
             viewMode: 'years'
-        }); 
+        });
+        
+        $('#datetimepickerSearch').datetimepicker({
+            viewMode: 'years',
+            format: 'MM/DD/YYYY'
+        });
         
         
         $("#datetimepicker1").on("dp.change", function() {
@@ -116,6 +121,12 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         $("#datetimepicker3").on("dp.change", function() {
 
         $scope.endDT = $("#datetimepicker3").val();
+
+    });
+        
+        $("#datetimepickerSearch").on("dp.change", function() {
+
+        $scope.start = $("#datetimepickerSearch").val();
 
     });
         
