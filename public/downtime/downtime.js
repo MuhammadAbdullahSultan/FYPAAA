@@ -17,7 +17,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     
     $scope.onEquipmentChange = function(item){
    // once user is selected equipment, we take 1st key from second list
-    var key =  Object.keys($scope.add[$scope.currentSystem].equipments)[0]
+    var key =  Object.keys($scope.add[$scope.currentEquipment].$id)[0]
 
     $scope.currentSystem = $scope.add[$scope.currentEquipment].system;   
   }
@@ -52,6 +52,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         list.$loaded().then(function(data) {
                 $scope.add = data;
                 console.log($scope.add);
+                
 //                angular.forEach ($scope.add , function (d) {
 //
 //                  $scope.allSystems.push(d.$id);  
