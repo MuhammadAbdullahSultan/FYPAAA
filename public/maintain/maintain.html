@@ -94,7 +94,7 @@
             <div class="form-group">
               <h4>Description</h4>
               <div class="col-lg-10">
-                <textarea maxlength="100" class="form-control" rows="3" id="textarea" style="margin: 0px 0px 0px 0px; height: 50px; width: 300px;" required data-ng-model="desc"></textarea>
+                <textarea maxlength="100" class="form-control" rows="3" id="textarea" style="margin: 0px 0px 0px 0px; height: 50px; width: 300px;" required data-ng-model="desc" placeholder="Write description..."></textarea>
                     <p id="count"></p> 
               </div>
             </div>
@@ -115,23 +115,34 @@
         
         <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <h4>Group</h4>
-                 <select class="form-control" id="searchType" data-ng-model="group">
+            <input list="browsers" name="browser" class="form-control" id="searchType" placeholder="Insert group here" data-ng-model="group" required>
+                
+  <datalist id="browsers">
+    <option value="Mechanical">
+    <option value="">
+    <option value="">
+    <option value="">
+    <option value="">
+  </datalist>
+                </select>
+        </div>
+        
+          <!--<select class="form-control" id="searchType" data-ng-model="group">
                     <option value="" disabled="" selected="" style="display: none">Select Group</option>
                     <option>Mechanical</option>
-                 </select>
-                </div>
+                 </select> -->
+        
+        
         
         {{group}}
         
     </div>
           
-<!--
           <div class="alert alert-dismissible alert-warning" data-ng-if="error">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
               <h4>Warning!</h4>
               <p>{{error}}</p>
             </div>
--->
 
             <div class="alert alert-dismissible alert-success" data-ng-if="message">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
