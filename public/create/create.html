@@ -18,9 +18,10 @@
   <br>
     
     <div class="row">
-        <div class="col-xs-5">
               <button ng-click="createUser()" class="btn  cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active">Create User  <span class="glyphicon glyphicon-plus"></span></button>
-        </div>
+        
+        <button ng-click="changePW()" class="btn  cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-toggle="modal" data-target="#changePassword" data-backdrop="false">Change Password  <span class="glyphicon glyphicon-pencil"></span></button>  
+
     </div>
 
   <br><br>
@@ -54,3 +55,26 @@
     </table>
     </div>
 </div>
+
+<div class="modal fade" id="changePassword">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+         <h4 class="modal-title">Report</h4>
+       </div>
+       <div class="modal-body">
+         <label for="email">Email</label>
+            <input type="text" ng-model="email" class="form-control" id="email">
+
+            <label for="password">Password</label>
+            <input type="password" ng-model="password" class="form-control" id="password">
+           
+       </div>
+       <div class="modal-footer">
+           
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+  </div>
