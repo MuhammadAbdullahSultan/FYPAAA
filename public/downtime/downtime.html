@@ -55,13 +55,16 @@
     </div>
    <hr/>
    <div class="table-responsive">
-      <table class="table table-striped table-hover">
-         <tr>
-            <th id="equipment">Equipment</th>
-            <th id="start">start</th>
-            <th id="end">end</th>
-            <th id="type">Type</th>
-         </tr>
+      <table class="table table-striped table-inverse table-hover">
+          <thead class="thead-inverse">
+              <tr>
+                <th id="equipment">Equipment</th>
+                <th id="start">start</th>
+                <th id="end">end</th>
+                <th id="type">Type</th>
+             </tr>
+          </thead>
+         
          <tr data-ng-repeat="d in allDT | filter: equipment | filter: type | filter: obj | filter: start track by $index" data-ng-if="d != null">
             <td headers = "equipment">{{d.equipment}}</td>
             <td headers = "start">{{d.start}}</td>
@@ -95,12 +98,17 @@
 
             <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
               <label for="selectequ">Select Equipment</label>
-               <select class="form-control" id="selectequ" data-ng-model="addEquipment" 
-                  >
+               <select class="form-control" id="selectequ" data-ng-model="currentEquipment">
                 <option value="" disabled="" selected="" style="display: none">Select Equipment</option>
                 <option data-ng-repeat="eq in add track by $index" >{{eq.$id}}</option>
               </select>
-
+                
+                <select class="form-control" id="selectequ" data-ng-model="currentSystem">
+                <option value="" disabled="" selected="" style="display: none">Select System</option>
+                <option data-ng-repeat="eq in add track by $index">{{eq[eq.$id].equipments}}</option>
+                </select>
+                
+                <p data-ng-repeat="eq in add track by $index">{{eq.$id.equipments}}</p>
                 {{addEquipment}}
             </div>
 
@@ -119,11 +127,11 @@
               <label for="date">Start of Downtime</label>
         <!--        <input type="datetime-local" id="datetimepicker1" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT"/>-->
 
-                        <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT" id="datetimepicker1" />
+            <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="startDT" id="datetimepicker1"/>
             </div>
             <div class="form-group col-xs-6">
               <label for="date">End of Downtime</label>
-                <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="endDT" id="datetimepicker3" data-ng-change="refreshTime()"/>
+                <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="endDT" id="datetimepicker3"/>
             </div>
 
             </div>

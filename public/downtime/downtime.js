@@ -14,6 +14,13 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     $scope.notEmptyOrNull = function(item){
   return !(item.name_fr === null || item.name_fr.trim().length === 0)
 }
+    
+    $scope.onEquipmentChange = function(item){
+   // once user is selected equipment, we take 1st key from second list
+    var key =  Object.keys($scope.add[$scope.currentEquipment].equipments)[0]
+
+    $scope.currentSystem = $scope.add[$scope.currentEquipment].equipments[key].system;   
+  }
      $scope.allEquipments = [];
      $scope.allSystems = [];
      $scope.allDT = [];
@@ -35,7 +42,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         var key = firebase.database().ref.key;
         console.log(key);
         
-};
+    };
     
         var ref = firebase.database().ref();
         var data = ref.child("AllEquipments");
@@ -44,6 +51,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         // for adding
         list.$loaded().then(function(data) {
                 $scope.add = data;
+                console.log($scope.add);
                 angular.forEach ($scope.add , function (d) {
 
                   $scope.allSystems.push(d.$id);  
