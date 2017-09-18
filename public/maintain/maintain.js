@@ -133,6 +133,13 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 });
     
 }]);
+
+    $(function () {
+    $(".custom-close").on('click', function() {
+        $('#myModal').modal('hide');
+        });
+    });
+
     $('#myModal').modal('hide');
     $('body').removeClass('modal-open');
     $('.modal-backdrop fade in').remove();
@@ -194,3 +201,5 @@ function add_row()
  document.getElementById("new_age").value="";
  document.getElementById("new_group").value="";
 }
+
+$("#myModal .close").click()
