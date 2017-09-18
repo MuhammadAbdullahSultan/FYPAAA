@@ -25,9 +25,9 @@
       
 <tr id="row1" data-ng-repeat = "equipments in data | offset: currentPage*unitsInPage | limitTo: unitsInPage track by $index">
 <td id="name_row1">{{equipments.$id}}</td>
-<td id="country_row1">{{equipments.equipments[equipments.$id].system}}</td>
-<td id="age_row1">{{equipments.equipments[equipments.$id].description}}</td>
-<td id="group_row1">{{equipments.equipments[equipments.$id].group}}</td>
+<td id="country_row1">{{equipments.system}}</td>
+<td id="age_row1">{{equipments.description}}</td>
+<td id="group_row1">{{equipments.group}}</td>
 <td>
     
         <button id="edit_button1" class="edit btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" onclick="edit_row('1')"><span class="glyphicon glyphicon-edit"></span></button>

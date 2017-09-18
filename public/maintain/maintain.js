@@ -45,7 +45,7 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         else {
             $scope.message = "The equipment has been added to the system"
         }
-        firebase.database().ref('AllEquipments/' + $scope.equipment + '/equipments').child($scope.equipment).set({
+        firebase.database().ref('AllEquipments/' + $scope.equipment).set({
             system: $scope.system,
             description: $scope.desc,
             group: $scope.group
