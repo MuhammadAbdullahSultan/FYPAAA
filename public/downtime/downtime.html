@@ -78,7 +78,11 @@
    </div>
 
 
-<a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-toggle="modal" data-target="#viewReport" data-backdrop="false">VIEW REPORT<span class="glyphicon glyphicon-eye-open"></span></a>
+    <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-toggle="modal" data-target="#viewReport" data-backdrop="false">VIEW REPORT<span class="glyphicon glyphicon-eye-open"></span></a>
+    
+    <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()" title="Export table (Excel) to computer"><span class="glyphicon glyphicon-export"></span></a>
+            
+    <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()" title="Print table to PDF"><span class="glyphicon glyphicon-print"></span></a>
     
     
 </div>
@@ -95,6 +99,9 @@
            
        </div>
        <div class="modal-footer">
+           
+           <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()" title="Print report to PDF"><span class="glyphicon glyphicon-print"></span></a>
+           
            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
        </div>
      </div>
