@@ -121,11 +121,11 @@
 
             <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
                 <label for="selectequ">Select Equipment</label>
-                <select class="form-control" id="selectequ" data-ng-model="equipment">
+                <select class="form-control" id="selectequ" data-ng-model="addEquipment">
                     <option value="" disabled="" selected="" style="display: none">Select Equipment</option>
                     <option data-ng-repeat="eq in add track by $index" value="{{$index}}">{{eq.$id}}</option>
                 </select>
-                <p data-ng-model="add[equipment].system"></p>
+                <p data-ng-model="add[addEquipment].system"></p>
             </div>
                 {{equipment}}
                 <br>

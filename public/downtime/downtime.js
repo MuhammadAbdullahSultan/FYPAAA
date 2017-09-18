@@ -34,6 +34,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     });
         firebase.database().ref('downtime/' + $scope.addEquipment).push({
             equipment: $scope.addEquipment,
+            system: $scope.add[$scope.equipment].system,
             type : $scope.type,
             start: $scope.startDT,
             end: $scope.endDT
