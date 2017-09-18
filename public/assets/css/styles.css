@@ -64,29 +64,6 @@ li a:hover {
     padding: 5px;
 }
 
-#fruits th, #fruits td{
-    border:solid 1px #000;
-    padding:.25em;
-}
-#fruits th{
-    font-weight:bold;
-    cursor:pointer;
-}
-
-#fruits th.asc:after{
-    content:'Asc';
-    display:inline-block;
-    padding:0 .5em;
-    color:green;
-}
-#fruits th.desc:after{
-    content:'Desc';
-    display:inline-block;
-    padding:0 .5em;
-    color:blue;
-}
-
-
 #central{
     display: block;
     margin-left: auto;
