@@ -27,7 +27,7 @@
                <td id="group_row1">{{equipments.group}}</td>
                <td>
                    <button data-toggle="modal" data-target="#editEquipment" class="edit btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-backdrop="false" data-ng-click="update($index)"><span class="glyphicon glyphicon-edit"></span></button>
-                  <button id="delete_button1" class="delete btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" onclick="delete_row('1')" title="Delete equipment"><span class="glyphicon glyphicon-trash"></span></button>
+                  <button id="delete_button1" class="delete btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" title="Delete equipment" data-ng-click="update($index); deleteEquipment();"><span class="glyphicon glyphicon-trash"></span></button>
                   
                </td>
                 
@@ -76,33 +76,34 @@
                         <h2>Edit: {{data[indexValue].$id}}</h2>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <label for="toEditSystem">System</label>
-                        <input type="text" data-ng-model="data[indexValue].system" class="form-control" id="toEditSystem">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label for="toEditSystem">System</label>
+                            <input type="text" data-ng-model="data[indexValue].system" class="form-control" id="toEditSystem" required>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <label for="toEditDesc">Description</label>
-                        <textarea type="text" data-ng-model="data[indexValue].description" class="form-control" id="toEditDesc"></textarea>
+                <br/>
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label for="toEditDesc">Description</label>
+                            <textarea type="text" data-ng-model="data[indexValue].description" class="form-control" id="toEditDesc" required></textarea>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <label for="toEditGroup">Group</label>
-                        <input type="text" data-ng-model="data[indexValue].group" class="form-control" id="toEditGroup">
+                <br/>
+
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label for="toEditGroup">Group</label>
+                            <input type="text" data-ng-model="data[indexValue].group" class="form-control" id="toEditGroup" required>
+                        </div>
                     </div>
-                </div>
+                
                 
             </div>
             <div class="modal-footer">
-                <div class="alert alert-dismissible alert-success">
+                <div class="alert alert-dismissible alert-success" data-ng-if="editComplete">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
-                  <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+                  <strong>Save Complete</strong>
                 </div>
             <button type="submit" class="btn btn-primary" data-ng-click="editEquipment()">Save</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

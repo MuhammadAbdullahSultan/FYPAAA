@@ -27,7 +27,7 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         var doesExist = false;
         var isEmpty = false;
         angular.forEach ($scope.data , function (d) {
-                firebase.database().ref('AllEquipments/' + $scope.editToAdd).set({
+                firebase.database().ref('AllEquipments/' + $scope.equipmentToAdd).set({
                     system: $scope.systemToAdd,
                     description: $scope.descToAdd,
                     group: $scope.groupToAdd
@@ -57,7 +57,14 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 //            group: $scope.editGroup
 //        });
         list.$save($scope.indexValue).then (function (data) {
-            $scope.editComplete = "Data has been saved";
+            alert("Data has been saved");
+        });
+    }
+    
+    $scope.deleteEquipment = function () {
+        var item = list[$scope.indexValue];
+        list.$remove(item).then (function (deletedData) {
+            console.log(deletedData);
         });
     }
     
