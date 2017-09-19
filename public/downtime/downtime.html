@@ -29,7 +29,7 @@
       <div class="form-group col-xs-4" id="equipList">
          <label for="selectequ">Select equipment list:</label>
          <select class="form-control" id="selectequ" data-ng-model="obj.equipment">
-            <option selected></option>
+            <option selected value="">All</option>
             <option data-ng-repeat="eq in dtdata track by $index">{{eq.$id}}</option>
          </select>
       </div>
@@ -48,7 +48,6 @@
         <input type = "radio" data-ng-model = "type" value = "Preventive Maintenance" />Preventive Maintenance &nbsp;
         <input type = "radio" data-ng-model = "type" value = "Standby" />Standby &nbsp;
         <input type = "radio" data-ng-model = "type"/>All&nbsp;  
-        <br/>
         <br/>
     </div>
   </div>
@@ -123,13 +122,17 @@
                 <label for="selectequ">Select Equipment</label>
                 <select class="form-control" id="selectequ" data-ng-model="addEquipment">
                     <option value="" disabled="" selected="" style="display: none">Select Equipment</option>
-                    <option data-ng-repeat="eq in add track by $index" value="{{$index}}">{{eq.$id}}</option>
+                    <option data-ng-repeat="eq in add track by $index">{{eq.$id}}</option>
                 </select>
-                <p data-ng-model="add[addEquipment].system"></p>
+<!--                <p data-ng-model="add[$indexFor(addEquipment)].system"></p>-->
             </div>
-                {{equipment}}
+<!--
+                {{addEquipment}}
+                
+                {{toStore}}
                 <br>
-                {{add[$IndexFor(equipment)].system}}
+                {{add[$indexFor(addEquipment)].system}}
+-->
 
                 <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Type">
                  <label for="searchType">Search by Type:</label>
