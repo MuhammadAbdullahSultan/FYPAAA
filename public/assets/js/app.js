@@ -60,12 +60,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                  var elem = elem[0];
                  if (!elem) return; // check and return if not clicked on bar/data
                  // else...
-                 $(document).ready(function(){
+                    $(document).ready(function(){
                     $("#myBtn").click(function(){
-                        $("#viewGraph").modal(); $('body').removeClass().removeAttr('style');
+                        $("#viewGraph").modal(); $('body').removeClass('modal-open');
                         $('.model-backdrop').remove();
                         });
-                    }); // just for test
+                    });// just for test
                  // modal opening code goes here...
               },
             
@@ -115,7 +115,8 @@ app.controller('myCtrlPercent', ['$scope', '$http', function ($scope, $http) {
                  // else...
                     $(document).ready(function(){
                     $("#myBtn").click(function(){
-                        $("#myModal").modal();
+                        $("#viewGraph").modal(); $('body').removeClass('modal-open');
+                        $('.model-backdrop').remove();
                         });
                     }); // just for test
                      // modal opening code goes here...
