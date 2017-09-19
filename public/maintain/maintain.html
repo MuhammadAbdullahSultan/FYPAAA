@@ -1,160 +1,180 @@
 <div class="page-header">
-    <h3>MANAGE EQUIPMENT </h3>
+   <h3>MANAGE EQUIPMENT </h3>
 </div>
 <div>
-    
-    
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <button type="button" class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-toggle="modal" data-target="#addEquipment" data-backdrop="false">Add New Equipment  <span class="glyphicon glyphicon-plus"></span></button>
-        </div>
-    </div>
-    <br/>
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <table class="table table-hover">
-    <thead class = "thead-inverse"> 
-      <tr>
-        <th>Equipment Name</th>
-        <th>System</th>
-        <th>Description</th>        
-        <th>Group</th>
-          <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      
-<tr id="row1" data-ng-repeat = "equipments in data | offset: currentPage*unitsInPage | limitTo: unitsInPage track by $index">
-<td id="name_row1">{{equipments.$id}}</td>
-<td id="country_row1">{{equipments.system}}</td>
-<td id="age_row1">{{equipments.description}}</td>
-<td id="group_row1">{{equipments.group}}</td>
-<td>
-    
-        <button id="edit_button1" class="edit btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" onclick="edit_row('1')" title="Edit equipment"><span class="glyphicon glyphicon-edit"></span></button>
-       
-        <button id="save_button1" class="save btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" onclick="save_row('1')" title="Save equipment"><span class="glyphicon glyphicon-floppy-disk"></span></button> 
-
-        <button id="delete_button1" class="delete btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" onclick="delete_row('1')" title="Delete equipment"><span class="glyphicon glyphicon-trash"></span>
-</td>
-</tr>
-
-    
-    </tbody>
-      <tfoot>
-    <tr>
-    <td colspan="2">
-        <ul class="pagination">
-            <li data-ng-class="prevPageDisabled()">
-                <a href="" data-ng-click="prevPage()">Prev</a>
-            </li>
-
-            <li data-ng-repeat="n in range()" 
-                data-ng-class="{active: n == currentPage}"
-                data-ng-click="setPage(n)">
-                     <a href="">{{n+1}}</a>
-            </li>
-
-            <li data-ng-class="nextPageDisabled()">
-                <a href = "" data-ng-click="nextPage()">Next</a>
-            </li>
-        </ul>
-    </td>
-    </tr>
-</tfoot>
-    
+   <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         <button type="button" class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-toggle="modal" data-target="#addEquipment" data-backdrop="false">Add New Equipment  <span class="glyphicon glyphicon-plus"></span></button>
+      </div>
+   </div>
+   <br/>
+   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <table class="table table-hover">
+         <thead class = "thead-inverse">
+            <tr>
+               <th>Equipment Name</th>
+               <th>System</th>
+               <th>Description</th>
+               <th>Group</th>
+               <th></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr id="row1" data-ng-repeat = "equipments in data | offset: currentPage*unitsInPage | limitTo: unitsInPage track by $index">
+               <td id="name_row1">{{equipments.$id}}</td>
+               <td id="country_row1">{{equipments.system}}</td>
+               <td id="age_row1"><p>{{equipments.description}}</p></td>
+               <td id="group_row1">{{equipments.group}}</td>
+               <td>
+                   <button data-toggle="modal" data-target="#editEquipment" class="edit btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-backdrop="false" data-ng-click="update($index)"><span class="glyphicon glyphicon-edit"></span></button>
+                  <button id="delete_button1" class="delete btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" onclick="delete_row('1')" title="Delete equipment"><span class="glyphicon glyphicon-trash"></span></button>
+                  
+               </td>
+                
+                
+            </tr>
+         </tbody>
+         <tfoot>
+            <tr>
+               <td colspan="2">
+                  <ul class="pagination">
+                     <li data-ng-class="prevPageDisabled()">
+                        <a href="" data-ng-click="prevPage()">Prev</a>
+                     </li>
+                     <li data-ng-repeat="n in range()" 
+                        data-ng-class="{active: n == currentPage}"
+                        data-ng-click="setPage(n)">
+                        <a href="">{{n+1}}</a>
+                     </li>
+                     <li data-ng-class="nextPageDisabled()">
+                        <a href = "" data-ng-click="nextPage()">Next</a>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+         </tfoot>
       </table>
-    </div>
-    
+   </div>
 </div>
 
-    
-    
+
 <!-- Trigger the modal with a button -->
 
-
-<!-- Modal -->
-<div class="modal fade" role="dialog" id="addEquipment" aria-hidden="true" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Add Equipment</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-            
-        <div class="form-group col-xs-6">
-            
-            <h4>Equipment</h4>
-            <input type="text" class="form-control input-lg" id="equi" placeholder="Insert equipment here" data-ng-model="equipment" required>
-            
-        </div>
-            
-            <div class=" form-group col-xs-6">
-            <div class="form-group">
-              <h4>Description</h4>
-              <div class="col-lg-10">
-                <textarea maxlength="100" class="form-control" rows="3" id="textarea" style="margin: 0px 0px 0px 0px; height: 50px; width: 300px;" required data-ng-model="desc" placeholder="Write description..."></textarea>
-                    <p id="count"></p> 
-              </div>
+<!-- Modal For adding Equipment-->
+<div class="modal fade" role="dialog" id="editEquipment" aria-hidden="true" tabindex="-1">
+   <div class="modal-dialog modal-lg">
+      <form>
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title">Edit Equipment</h4>
             </div>
-        </div>
-        
-        
-        
-        
-    </div>
-    <div class="row">
-        <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            
-            <h4>System</h4>
-            <input type="text" class="form-control input-lg" id="sys" placeholder="Insert system here" data-ng-model="system" required>
-            <br>
-              
-        </div>
-        
-        <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <h4>Group</h4>
-            <input list="browsers" name="browser" class="form-control" id="searchType" placeholder="Insert group here" data-ng-model="group" required>
+            <div class="modal-body">
                 
-  <datalist id="browsers">
-    <option value="Mechanical">
-    <option value="">
-    <option value="">
-    <option value="">
-    <option value="">
-  </datalist>
-        </div> 
-        
-          <!--<select class="form-control" id="searchType" data-ng-model="group">
-                    <option value="" disabled="" selected="" style="display: none">Select Group</option>
-                    <option>Mechanical</option>
-                 </select> -->
-        
-        
-        
-        {{group}}
-        
-    </div>
-          
-          <div class="alert alert-dismissible alert-warning" data-ng-if="error">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <h4>Warning!</h4>
-              <p>{{error}}</p>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h2>Edit: {{data[indexValue].$id}}</h2>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label for="toEditSystem">System</label>
+                        <input type="text" data-ng-model="data[indexValue].system" class="form-control" id="toEditSystem">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label for="toEditDesc">Description</label>
+                        <textarea type="text" data-ng-model="data[indexValue].description" class="form-control" id="toEditDesc"></textarea>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label for="toEditGroup">Group</label>
+                        <input type="text" data-ng-model="data[indexValue].group" class="form-control" id="toEditGroup">
+                    </div>
+                </div>
+                
             </div>
-
-
-            <div class="alert alert-dismissible alert-success" data-ng-if="message">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Success</strong> {{message}}.
+            <div class="modal-footer">
+                <div class="alert alert-dismissible alert-success">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+                </div>
+            <button type="submit" class="btn btn-primary" data-ng-click="editEquipment()">Save</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
-          
-      </div>
-      <div class="modal-footer">
-        
-        <button type="button" class="btn btn-primary" data-ng-click="writeUserData()">Add</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+         </div>
+      </form>
+   </div>
+</div>
+
+<!-- Modal For adding Equipment-->
+<div class="modal fade" role="dialog" id="addEquipment" aria-hidden="true" tabindex="-1">
+   <div class="modal-dialog modal-lg">
+      <form>
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title">Add Equipment</h4>
+            </div>
+            <div class="modal-body">
+               <div class="row">
+                  <div class="form-group col-xs-6">
+                     <h4>Equipment</h4>
+                     <input type="text" class="form-control input-lg" id="equi" placeholder="Insert equipment here" data-ng-model="equipmentToAdd" required>
+                  </div>
+                  <div class=" form-group col-xs-6">
+                     <div class="form-group">
+                        <h4>Description</h4>
+                        <div class="col-lg-10">
+                           <textarea maxlength="100" class="form-control" rows="3" id="desc" style="margin: 0px 0px 0px 0px; height: 50px; width: 300px;" required data-ng-model="descToAdd" placeholder="Write description..."></textarea>
+                           <p id="count"></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <h4>System</h4>
+                     <input type="text" class="form-control input-lg" id="sys" placeholder="Insert system here" data-ng-model="systemToAdd" required>
+                     <br>
+                  </div>
+                  <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <h4>Group</h4>
+                     <input list="browsers" name="browser" class="form-control" id="searchType" placeholder="Insert group here" data-ng-model="groupToAdd" required>
+                     <datalist id="browsers">
+                        <option value="Mechanical">
+                        <option value="">
+                        <option value="">
+                        <option value="">
+                        <option value="">
+                     </datalist>
+                  </div>
+                  <!--<select class="form-control" id="searchType" data-ng-model="group">
+                     <option value="" disabled="" selected="" style="display: none">Select Group</option>
+                     <option>Mechanical</option>
+                     </select> -->
+                  {{group}}
+               </div>
+               <div class="alert alert-dismissible alert-warning" data-ng-if="error">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <h4>Warning!</h4>
+               <p>{{error}}</p>
+               </div>
+               <div class="alert alert-dismissible alert-success" data-ng-if="message">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Success</strong> {{message}}.
+               </div>
+            </div>
+            <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-ng-click="writeUserData()">Add</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </form>
+   </div>
 </div>

@@ -18,6 +18,7 @@
     <h3 class="panel-title">Search Filter</h3>
   </div>
   <div class="panel-body">
+<!--
     <div class="form-group col-xs-4" id="sysList">
          <label for="selectsys">Select system list:</label>
          <select class="form-control" id="selectsys" data-ng-model="system">
@@ -25,8 +26,9 @@
             <option ng-repeat="d in dtdata">{{d.downtime[d.$id]}}</option>
          </select>
       </div>
+-->
       
-      <div class="form-group col-xs-4" id="equipList">
+      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
          <label for="selectequ">Select equipment list:</label>
          <select class="form-control" id="selectequ" data-ng-model="obj.equipment">
             <option selected value="">All</option>
@@ -34,13 +36,13 @@
          </select>
       </div>
 
-        <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4" id="equipList">
+        <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6" id="equipList">
              <label for="date">Select date</label>
               <input type="text" class="form-control" placeholder="Day, Month, Year" data-ng-model="start" id="datetimepickerSearch" />
           </div>
     
     <br/>
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2" id="Type">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="Type">
         <label for="type">Select type:</label>
         <br/>
         

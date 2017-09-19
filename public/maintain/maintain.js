@@ -22,54 +22,58 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 	$scope.currentPage = 0;
     'use strict';
     $scope.message;
+    
     $scope.writeUserData = function () {
         var doesExist = false;
+        var isEmpty = false;
         angular.forEach ($scope.data , function (d) {
-        angular.forEach (d.equipments, function (e) {
-            console.log(e);
-            if ($scope.equipment == e.equipment) {
-                $scope.error = "Cannot add the same equipment again";
-                doesExist = true;
-            }
-        })
+                firebase.database().ref('AllEquipments/' + $scope.editToAdd).set({
+                    system: $scope.systemToAdd,
+                    description: $scope.descToAdd,
+                    group: $scope.groupToAdd
+                });
+                $scope.message = "The equipment has been added to the system"
+            
     });
         if(doesExist) {
             return;
         }
         
-        if (document.getElementById('equi').value == "") {
-            alert("Please fill out the equipment");
+        if(isEmpty) {
+            return;
         }
         
         
-        else {
-            $scope.message = "The equipment has been added to the system"
-        }
-        firebase.database().ref('AllEquipments/' + $scope.equipment).set({
-            system: $scope.system,
-            description: $scope.desc,
-            group: $scope.group
-            
-        });
+        
 };
+    $scope.update = function (index) {
+        $scope.indexValue = index;
+    };
+    
+    $scope.editEquipment = function () {
+//        firebase.database().ref('AllEquipments/' + $scope.editEquipment).set({
+//            system: $scope.editSystem,
+//            description: $scope.editDescription,
+//            group: $scope.editGroup
+//        });
+        list.$save($scope.indexValue).then (function (data) {
+            $scope.editComplete = "Data has been saved";
+        });
+    }
     
     
         var ref = firebase.database().ref();
         var data = ref.child("AllEquipments");
         var list = $firebaseArray(data);
         
+        
         list.$loaded().then(function(data) {
             $scope.data = data;
-            console.log($scope.data);
-            console.log($scope.data.length);
+            console.log($scope.data[0].$id);
             angular.forEach ($scope.data , function (d) {
         $scope.equipment1 = d.$id;
         angular.forEach (d.system, function (e) {
-            console.log(e);
-            $scope.system1 = e
-            if ($scope.equipmentt == e.equipment) {
-                $scope.error = "Cannot add the same equipment again";
-            }
+            $scope.system1 = e;
         })
     });
         }).catch(function(error) {
@@ -133,7 +137,6 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 		for (i=start; i<start + rangeSize; i++) {
 			numForPagiBtns.push(i);
 		}
-        console.log(numForPagiBtns);
 		return numForPagiBtns;
 	};
     
@@ -195,8 +198,8 @@ function edit_row(no)
 	
  name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"' data-ng-model='editEquipment'>";
  country.innerHTML="<input type='text' id='country_text"+no+"' value='"+country_data+"' data-ng-model='editSystem'>";
- age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"' data-ng-model='edit'>";
- group.innerHTML="<input type='text' id='group_text"+no+"'value='"+group_data+"' data-ng-model='editEquipment'>";
+ age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"' data-ng-model='editDescription'>";
+ group.innerHTML="<input type='text' id='group_text"+no+"'value='"+group_data+"' data-ng-model='editGroup'>";
 }
 
 function save_row(no)
