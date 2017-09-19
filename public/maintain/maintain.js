@@ -128,6 +128,14 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 		return Math.ceil($scope.data.length/$scope.unitsInPage) -1;
 	};
     
+     $('.dropdown-menu input').click(function (e) {
+     e.stopPropagation();
+ });
+$('.dropdown-menu li').click(function(){
+ 
+$('.dropdown-toggle b').remove().appendTo($('.dropdown-toggle').text($(this).text()));
+});
+    
     //setting number for pagination button to be display
 	$scope.range = function () {
 		var rangeSize = 3;
@@ -146,6 +154,14 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 		}
 		return numForPagiBtns;
 	};
+    
+     $('.dropdown-menu input').click(function (e) {
+     e.stopPropagation();
+ });
+$('.dropdown-menu li').click(function(){
+ 
+$('.dropdown-toggle b').remove().appendTo($('.dropdown-toggle').text($(this).text()));
+});
     
     
     //Set the current page to the number pressed by user in pagination

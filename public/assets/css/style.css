@@ -27,6 +27,22 @@
     font-weight: 400;
 }
 
+.dropdown-toggle
+{
+    border: 1px solid black;
+    width:120px;
+}
+.dropdown-menu, #other
+{
+    width:120px;
+}
+.caret
+{
+    float:right;
+    margin-right:5px;
+}
+
+
 .focus {
   background-color: #ff00ff;
   color: #fff;

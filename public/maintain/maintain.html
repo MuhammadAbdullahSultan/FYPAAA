@@ -146,7 +146,22 @@
                   </div>
                   <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
                      <h4>Group</h4>
-                     <input list="browsers" name="browser" class="form-control" id="searchType" placeholder="Insert group here" data-ng-model="groupToAdd" required>
+                     <!--<input list="browsers" name="browser" class="form-control" id="searchType" placeholder="Insert group here" data-ng-model="groupToAdd" required> -->
+                      
+                      <ul class="nav" role="navigation">
+    <li class="dropdown"> <a id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Select Group</a>
+
+        <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+            <li role="presentation"><a role="menuitem" tabindex="-1">Mechanical</a>
+
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1"><input type="text" id="other" placeholder="Add Group"/><button type="submit" class="btn btn-primary" data-ng-click="writeUserData()">+</button></a>
+
+            </li>
+        </ul>
+    </li>
+</ul>
                      <datalist id="browsers">
                         <option value="Mechanical">
                         <option value="">
