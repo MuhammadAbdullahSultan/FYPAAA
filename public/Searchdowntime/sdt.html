@@ -5,19 +5,19 @@
 
     
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" data-ng-controller="myCtrlPercent">
-            
-            <div class="col-xs-12">
-            System Downtime Percentage(%)
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" data-ng-controller="myCtrl">
+        
+                <div class="col-xs-12">
+
+                Equipment Downtime (Hour)
                 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()" title="Export graph (JPEG) to computer"><span class="glyphicon glyphicon-export"></span></a>
             
                 <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()" title="Print graph to PDF"><span class="glyphicon glyphicon-print"></span></a>
             </div>
-                
-            <div class="col-xs-12 searchtable" id="chartStyle">
-                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false"></canvas>
-            </div>
             
+            <div class="col-xs-12 searchtable" id="chartStyle">
+                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false" chart-click="onClick"></canvas>
+            </div>
         </div>
         
         
@@ -32,7 +32,7 @@
             </div>
                 
             <div class="col-xs-12 searchtable" id="chartStyle">
-                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false"></canvas>
+                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false" chart-click="onClick"></canvas>
             </div>
             
         </div>
@@ -51,7 +51,7 @@
             </div>
             
             <div class="col-xs-12 searchtable" id="chartStyle">
-                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false"></canvas>
+                <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="chartOptions" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false" chart-click="onClick"></canvas>
             </div>
         </div>
        
@@ -68,7 +68,7 @@
             </div>
             
             <div class="col-xs-12 searchtable" id="chartStyle">
-                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false"></canvas>
+                <canvas class="chart chart-bar" chart-data="dataPercent" chart-labels="labelsPercent" chart-series="series" chart-options="chartOptionsPercent" id="myBtn" data-toggle="modal" data-target="#viewGraph" data-backdrop="false" chart-click="onClick"></canvas>
             </div>        
         </div>
         

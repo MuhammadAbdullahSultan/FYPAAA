@@ -49,24 +49,32 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             title: {
                 display: true,
                 text: "",
-                fontSize: 20
+                fontSize: 20,
             },
             
             legend: {
                 text: "Hello"
             },
             
+            tooltips: {
+                enabled: false
+            },
+            
             onClick: function(event, elem) {
-                 var elem = elem[0];
-                 if (!elem) return; // check and return if not clicked on bar/data
+                 var chartele = elem[0];
+                 if (!chartele) {return;} // check and return if not clicked on bar/data
                  // else...
+                else {
+                    
                     $(document).ready(function(){
                     $("#myBtn").click(function(){
-                        $("#viewGraph").modal(); $('body').removeClass('modal-open');
-                        $('.model-backdrop').remove();
+                        $("#viewGraph").modal(); 
+                        
                         });
-                    });// just for test
-                 // modal opening code goes here...
+                    });
+                    
+                }
+        
               },
             
             scales: {
@@ -109,17 +117,25 @@ app.controller('myCtrlPercent', ['$scope', '$http', function ($scope, $http) {
                 text: "Hello"
             },
             
+            tooltips: {
+                enabled: false
+            },
+            
             onClick: function(event, elem) {
-                 var elem = elem[0];
-                 if (!elem) return; // check and return if not clicked on bar/data
+                 var chartele = elem[0];
+                 if (!chartele) {
+                     return;
+                 } // check and return if not clicked on bar/data
                  // else...
+                else {
                     $(document).ready(function(){
                     $("#myBtn").click(function(){
-                        $("#viewGraph").modal(); $('body').removeClass('modal-open');
-                        $('.model-backdrop').remove();
+                        $("#viewGraph").modal(); 
+                        
                         });
-                    }); // just for test
-                     // modal opening code goes here...
+                    }); 
+                }
+                    
               },
             
             scales: {
