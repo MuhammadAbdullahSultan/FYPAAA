@@ -108,17 +108,22 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     
 
         $('#datetimepicker1').datetimepicker({
-            viewMode: 'years'
+            viewMode: 'years',
+            maxDate: $.now()
             
         }); 
         
         $('#datetimepicker3').datetimepicker({
-            viewMode: 'years'
+            viewMode: 'years',
+            maxDate: $.now()
+            
         });
         
         $('#datetimepickerSearch').datetimepicker({
             viewMode: 'years',
-            format: 'MM/DD/YYYY'
+            format: 'MM/DD/YYYY',
+            maxDate: $.now()
+
         });
         
         
