@@ -1,122 +1,115 @@
 <!DOCTYPE html>
 <html data-ng-app="myApp" data-ng-controller="loginCtrl">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dashboard</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-       <script type="text/javascript" src="assets/js/jquery.min.js"></script>   
-    <link rel="stylesheet" href="assets/css/styles.css">
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-       <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
-    <link rel="stylesheet" href="assets/css/newstyles.min.css">
-</head>
-
-<body data-ng-controller="myCtrl as con">
-    <div>
-        <nav class="navbar navbar-default navigation-clean" style="background-color:rgb(0,70,79);margin:0px;margin-bottom:5px;margin-top:5px;">
+      <script type="text/javascript" src="assets/js/jquery.min.js"></script>   
+      <link rel="stylesheet" href="assets/css/styles.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+      <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+      <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
+      <link rel="stylesheet" href="assets/css/newstyles.min.css">
+   </head>
+   <body data-ng-controller="myCtrl as con">
+      <div>
+         <nav class="navbar navbar-default navigation-clean" style="background-color:rgb(0,70,79);margin:0px;margin-bottom:5px;margin-top:5px; border-radius: 20px;">
             <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand navbar-link" href="#" style="margin-right:0px;padding-left:109px;color:rgb(247,247,247);background-image:url(&quot;assets/img/logo_xfab.png&quot;);background-position:top;background-size:cover;background-repeat:no-repeat;width:126px;margin-left:22px;">
-                    </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav navbar-right"></ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="col-md-6">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<nav class="navbar navbar-m2p sidebar" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-<br>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <!-- Dashboard -->
-                <li class="active open">
-                  <a href="#!sdt">
-                      <span class="pull-right hidden-xs showopacity glyphicon material-icons">av_timer</span> Dashboard
+               <div class="navbar-header">
+                  <a class="navbar-brand navbar-link" href="#" style="margin-right:0px;padding-left:109px;color:rgb(247,247,247);background-image:url(&quot;assets/img/logo_xfab.png&quot;);background-position:top;background-size:cover;background-repeat:no-repeat;width:126px;margin-left:22px;">
                   </a>
-                    <a href="#!maintain"><i class="material-icons">devices</i> Manage Equipment</a>
-                        <a href="#!downtime"><i class="material-icons">assessment</i> Manage Downtime</a>                        
-                        <a href="#!create"><i class="material-icons">assignment_ind</i> Manage Users</a>
-                </li>
-                
-                <li class="separator"></li>
-                <!-- Page -->
-                
-                <!-- Exit -->
-                <li>
-                    <a href="" data-ng-click="signout();">
-                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">exit_to_app</span> Logout
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<script type="text/javascript">
-function htmlbodyHeightUpdate() {
-    var height3 = $(window).height();
-    var height1 = $('.nav').height() + 50;
-    height2 = $('.container-main').height();
-    if (height2 > height3) {
-        $('html').height(Math.max(height1, height3, height2) + 10);
-        $('body').height(Math.max(height1, height3, height2) + 10);
-    } else
-    {
-        $('html').height(Math.max(height1, height3, height2));
-        $('body').height(Math.max(height1, height3, height2));
-    }
-
-}
-$(document).ready(function () {
-    htmlbodyHeightUpdate();
-    $(window).resize(function () {
-        htmlbodyHeightUpdate();
-    });
-    $(window).scroll(function () {
-        height2 = $('.container-main').height();
-        htmlbodyHeightUpdate();
-    });
-});
-</script>
-
-</div>
-                </div>
-                <div class="col-md-8">
-                    <div class="text-left show visible-xs-block visible-sm-block visible-md-block visible-lg-block" data-aos="fade-down" data-aos-duration="350" data-aos-once="true" style="margin-top:17px;margin-left:-19px;padding:12px;padding-left:0px;background-position:left;background-size:cover;background-repeat:no-repeat;font-size:16px;" data-ng-view=""></div>
-                </div>
+                  <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+               </div>
+               <div class="collapse navbar-collapse" id="navcol-1">
+                  <ul class="nav navbar-nav navbar-right"></ul>
+               </div>
             </div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
-    <script src="assets/js/script.min.js"></script>
-    
+         </nav>
+      </div>
+      <div>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="col-md-6">
+                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                     <nav class="navbar navbar-m2p sidebar" role="navigation" style="border-radius: 20px;">
+                        <div class="container-fluid">
+                           <!-- Brand and toggle get grouped for better mobile display -->
+                           <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              </button>
+                              <br>
+                           </div>
+                           <!-- Collect the nav links, forms, and other content for toggling -->
+                           <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                              <ul class="nav navbar-nav">
+                                 <!-- Dashboard -->
+                                 <li class="active open">
+                                    <a href="#!sdt">
+                                    <span class="pull-right hidden-xs showopacity glyphicon material-icons">av_timer</span> Dashboard
+                                    </a>
+                                    <a href="#!maintain"><i class="material-icons">devices</i> Manage Equipment</a>
+                                    <a href="#!downtime"><i class="material-icons">assessment</i> Manage Downtime</a>                        
+                                    <a href="#!create"><i class="material-icons">assignment_ind</i> Manage Users</a>
+                                 </li>
+                                 <li class="separator"></li>
+                                 <!-- Page -->
+                                 <!-- Exit -->
+                                 <li>
+                                    <a href="" data-ng-click="signout();">
+                                    <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">exit_to_app</span> Logout
+                                    </a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </nav>
+                     <script type="text/javascript">
+                        function htmlbodyHeightUpdate() {
+                            var height3 = $(window).height();
+                            var height1 = $('.nav').height() + 50;
+                            height2 = $('.container-main').height();
+                            if (height2 > height3) {
+                                $('html').height(Math.max(height1, height3, height2) + 10);
+                                $('body').height(Math.max(height1, height3, height2) + 10);
+                            } else
+                            {
+                                $('html').height(Math.max(height1, height3, height2));
+                                $('body').height(Math.max(height1, height3, height2));
+                            }
+                        
+                        }
+                        $(document).ready(function () {
+                            htmlbodyHeightUpdate();
+                            $(window).resize(function () {
+                                htmlbodyHeightUpdate();
+                            });
+                            $(window).scroll(function () {
+                                height2 = $('.container-main').height();
+                                htmlbodyHeightUpdate();
+                            });
+                        });
+                     </script>
+                  </div>
+               </div>
+               <div class="col-md-8">
+                  <div class="text-left show visible-xs-block visible-sm-block visible-md-block visible-lg-block" data-aos="fade-down" data-aos-duration="350" data-aos-once="true" style="margin-top:17px;margin-left:-19px;padding:12px;padding-left:0px;background-position:left;background-size:cover;background-repeat:no-repeat;font-size:16px;" data-ng-view=""></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+      <script src="assets/js/script.min.js"></script>
       <!-- Angular -->
       <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
-
       <!-- Firebase -->
       <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
       <!-- AngularFire -->
@@ -135,10 +128,9 @@ $(document).ready(function () {
       <script src="home/home.js"></script>
       <script src="dashboard/dashboard.js"></script>
       <script src="create/create.js"></script>
-       <script src="downtime/downtime.js"></script>
-        <script src="maintain/maintain.js"></script>
-        <script src="Searchdowntime/sdt.js"></script>
+      <script src="downtime/downtime.js"></script>
+      <script src="maintain/maintain.js"></script>
+      <script src="Searchdowntime/sdt.js"></script>
       <script src="assets/js/modernizr.custom.79639.js"></script>
-</body>
-
+   </body>
 </html>
