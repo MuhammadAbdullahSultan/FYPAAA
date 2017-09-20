@@ -12,10 +12,10 @@
       <table class="table table-hover">
          <thead class = "thead-inverse">
             <tr>
-               <th>Equipment Name</th>
-               <th>System</th>
-               <th>Description</th>
-               <th>Group</th>
+                <th class="sortable asc">Equipment Name</th>
+                <th class="sortable">System</th>
+                <th class="sortable">Description</th>        
+                <th class="sortable">Group</th>
                <th></th>
             </tr>
          </thead>
@@ -28,7 +28,6 @@
                <td>
                    <button data-toggle="modal" data-target="#editEquipment" class="edit btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-backdrop="false" data-ng-click="update($index)"><span class="glyphicon glyphicon-edit"></span></button>
                   <button id="delete_button1" class="delete btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" title="Delete equipment" data-ng-click="update($index); deleteEquipment();"><span class="glyphicon glyphicon-trash"></span></button>
-                  
                </td>
                 
                 
@@ -44,7 +43,7 @@
                      <li data-ng-repeat="n in range()" 
                         data-ng-class="{active: n == currentPage}"
                         data-ng-click="setPage(n)">
-                        <a href="">{{n+1}}</a>
+                        <a href="" style="z-index: 1">{{n+1}}</a>
                      </li>
                      <li data-ng-class="nextPageDisabled()">
                         <a href = "" data-ng-click="nextPage()">Next</a>
@@ -179,6 +178,7 @@
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
          </div>
+          </div>
       </form>
    </div>
 </div>
