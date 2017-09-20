@@ -21,6 +21,22 @@
     background: transparent; 
 }
 
+.dropdown-toggle
+{
+    border: 1px solid black;
+    width:120px;
+}
+.dropdown-menu, #other
+{
+    width:120px;
+}
+.caret
+{
+    float:right;
+    margin-right:5px;
+}
+
+
 .wrapper-demo {
     margin: 60px 0 0 0;
     *zoom: 1;

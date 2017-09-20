@@ -46,6 +46,14 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         
         
 };
+    
+     $('.dropdown-menu input').click(function (e) {
+     e.stopPropagation();
+ });
+$('.dropdown-menu li').click(function(){
+ 
+$('.dropdown-toggle b').remove().appendTo($('.dropdown-toggle').text($(this).text()));
+});
     $scope.update = function (index) {
         $scope.indexValue = index;
     };

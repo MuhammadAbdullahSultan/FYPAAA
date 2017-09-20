@@ -81,7 +81,7 @@
                             <label for="toEditDesc">Description</label>
                             <textarea type="text" data-ng-model="data[indexValue].description" class="form-control" id="toEditDesc" required></textarea>
                         </div>
-                    </div>
+                    </div>  
                 <br/>
 
                     <div class="row">
@@ -146,7 +146,30 @@
                         <option value="">
                         <option value="">
                         <option value="">
+                         <input type="text" id="other" placeholder="Other Group"/>   
                      </datalist>
+                      <ul class="nav" role="navigation">
+    <li class="dropdown"> <a id="searchType" role="button" class="form-control" data-toggle="dropdown" data-ng-model="groupToAdd">Select Group<b class="caret"></b></a>
+
+        <ul class="dropdown-menu" id="browsers" role="menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1">Group A</a>
+
+            </li>
+            <li role="presentation" class="form-control"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1">Group B</a>
+
+            </li>
+            <li role="presentation" class="form-control"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1">Group C</a>
+
+            </li>
+            <li role="presentation" class="form-control"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1"><input type="text" id="other" placeholder="Other Group"/><button>+</button></a>
+
+            </li>
+        </ul>
+    </li>
+</ul>
                   </div>
                
             </div>
