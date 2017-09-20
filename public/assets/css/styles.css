@@ -202,6 +202,11 @@ li a:hover {
     border: 10px;
 }
 
+.boxmarg{
+    border-right: 200px;
+    border-left: 200px;
+}
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
