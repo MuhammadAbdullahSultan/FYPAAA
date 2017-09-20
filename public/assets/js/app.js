@@ -183,7 +183,7 @@ app.controller("loginCtrl", ["$scope", "Auth",
                 console.log ($scope.email);
                 $scope.signin.profile = {}
                 console.log("user.uid " + $scope.signin.uid);
-                    document.location.href= "dashboard.html#!/chart";
+                    document.location.href= "newDash.html#!/sdt";
 //                user.providerData.forEach(function(profile) {
 //                    $scope.signin.profile.provider = profile.providerId;
 //                    $scope.signin.profile.uid = profile.uid;
