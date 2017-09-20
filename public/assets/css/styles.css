@@ -65,6 +65,23 @@ li a:hover {
     padding: 5px;
 }
 
+#fruits th{
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#fruits th.asc:after{
+    content:'▲';
+    display:inline-block;
+    padding:0 .5em;
+    color:white;
+}
+#fruits th.desc:after{
+    content:'▼';
+    display:inline-block;
+    padding:0 .5em;
+    color:white;
+}
 #central{
     display: block;
     margin-left: auto;
