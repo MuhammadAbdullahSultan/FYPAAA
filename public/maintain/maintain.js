@@ -46,6 +46,14 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         
         
 };
+ //maximum character in description   
+    $('textarea').keypress(function(){
+
+    if(this.value.length > 100){
+        return false;
+    }
+    $("#remainingC").html("Remaining characters : " +(100 - this.value.length));
+});
     
      $('.dropdown-menu input').click(function (e) {
      e.stopPropagation();
