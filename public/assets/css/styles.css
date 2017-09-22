@@ -58,6 +58,11 @@ li a:hover {
     
 }
 
+#backgroundall {
+    background-image: url("../img/1.jpg");
+    background-repeat: repeat;
+}
+
 .border{
     border: 2px solid black;
     border-radius: 5px;
