@@ -3,16 +3,16 @@
 </div>
 <div>
    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
          <button type="button" class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-toggle="modal" data-target="#addEquipment" data-backdrop="false">Add New Equipment  <span class="glyphicon glyphicon-plus"></span></button>
       </div>
    </div>
    <br/>
    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <table id="fruits" class="table table-hover">
+      <table id="fruits" class="table table-hover txtsize">
          <thead  class = "thead-inverse">
             <tr>
-                <th class="sortable asc">Equipment Name</th>
+                <th class="sortable">Equipment Name</th>
                 <th class="sortable">System</th>
                 <th class="sortable">Description</th>        
                 <th class="sortable">Group</th>
@@ -64,21 +64,21 @@
 <div class="modal fade" role="dialog" id="editEquipment" aria-hidden="true" tabindex="-1">
    <div class="modal-dialog modal-lg">
       <form>
-         <div class="modal-content">
+         <div class="modal-content txtsize">
             <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                <h4 class="modal-title">Edit {{data[indexValue].$id}}</h4>
             </div>
             <div class="modal-body">
                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="toEditSystem">System</label>
                             <input type="text" data-ng-model="data[indexValue].system" class="form-control" id="toEditSystem" required>
                         </div>
                     </div>
                 <br/>
                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="toEditDesc">Description</label>
                             <textarea type="text" data-ng-model="data[indexValue].description" class="form-control" id="toEditDesc" required></textarea>
                         </div>
@@ -86,7 +86,7 @@
                 <br/>
 
                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="toEditGroup">Group</label>
                             <input type="text" data-ng-model="data[indexValue].group" class="form-control" id="toEditGroup" required>
                         </div>
@@ -111,30 +111,30 @@
 <div class="modal fade" role="dialog" id="addEquipment" aria-hidden="true" tabindex="-1">
    <div class="modal-dialog modal-lg">
       <form>
-         <div class="modal-content">
+         <div class="modal-content txtsize">
             <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-               <h4 class="modal-title">Add Equipment</h4>
+               <h4 class="modal-title ">Add Equipment</h4>
             </div>
             <div class="modal-body">
                <div class="row">
-                  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                     <h4>Equipment</h4>
-                     <input type="text" class="form-control" id="equi" placeholder="Insert equipment name e.g ABC-A0-12" data-ng-model="equipmentToAdd" required>
+                  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                     <h5>Equipment</h5>
+                     <input type="text" class="form-control txtsize" id="equi" placeholder="Insert equipment name e.g ABC-A0-12" data-ng-model="equipmentToAdd" required>
                   </div>
-                  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h4>Description</h4>
-                           <textarea maxlength="100" class="form-control input-md" id="desc" required data-ng-model="descToAdd" placeholder="Write description not more than 100 words"><textarea></textarea> <span id='remainingC'></span></textarea>
+                  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                        <h5>Description</h5>
+                           <textarea maxlength="100" class="form-control input-md txtsize" id="desc" required data-ng-model="descToAdd" placeholder="Write description not more than 100 words"><textarea></textarea> <span id='remainingC'></span></textarea>
                            <p id="count"></p>
                   </div>
                
                   <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                     <h4>System</h4>
-                     <input type="text" class="form-control input-md" id="sys" placeholder="Insert system name" data-ng-model="systemToAdd" required>
+                     <h5>System</h5>
+                     <input type="text" class="form-control input-md txtsize" id="sys" placeholder="Insert system name" data-ng-model="systemToAdd" required>
                   </div>
                   <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                     <h4>Group</h4>
-                     <input list="browsers" name="browser" class="form-control" id="searchType" placeholder="Select group" data-ng-model="groupToAdd" required>
+                     <h5>Group</h5>
+                     <input list="browsers" name="browser" class="form-control txtsize" id="searchType" placeholder="Select group" data-ng-model="groupToAdd" required>
                      <datalist id="browsers">
                         <option value="Mechanical">
                         <option value="">
@@ -171,12 +171,12 @@
                
             </div>
                 
-                <div class="alert alert-dismissible alert-warning" data-ng-if="error">
+                <div class="alert alert-dismissible alert-warning txtsize" data-ng-if="error">
                <button type="button" class="close" data-dismiss="alert">&times;</button>
-               <h4>Warning!</h4>
+               <h5>Warning!</h5>
                <p>{{error}}</p>
                </div>
-               <div class="alert alert-dismissible alert-success" data-ng-if="message">
+               <div class="alert alert-dismissible alert-success txtsize" data-ng-if="message">
                <button type="button" class="close" data-dismiss="alert">&times;</button>
                <strong>Success</strong> {{message}}.
                </div>

@@ -162,6 +162,12 @@ li a:hover {
  .bottom_ul li:after { content:"/"; color:#FFF; margin-right:8px; margin-left:8px;}
  .bottom_ul li a { color:#FFF;  font-size:12px;}
 
+.txtsize{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+
+
 .cd-add-to-cart {
   display: inline-block;
     margin: 10px;
@@ -218,7 +224,7 @@ li a:hover {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -245,4 +251,8 @@ li a:hover {
 .ui-datepicker-next,.ui-datepicker-prev {
   display:none;
 }
+
+.btn{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 11px;}
 
