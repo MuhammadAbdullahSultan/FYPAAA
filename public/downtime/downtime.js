@@ -116,11 +116,8 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '
 
         $('#datetimepicker1').datetimepicker({
             viewMode: 'years',
-            format: 'DD/MM/YYYY hh:mm',
-            onSelect: function(selected) {
-        $("#datetimepicker3").datetimepicker("option","minDate", selected)
-        }
-
+            format: 'DD/MM/YYYY hh:mm'
+            
             
 //            if ($scope.startDT > $.now()) 
 //            {
@@ -132,7 +129,6 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '
         $('#datetimepicker3').datetimepicker({
             viewMode: 'years',
             format: 'DD/MM/YYYY hh:mm'
-            
 
         });
         
