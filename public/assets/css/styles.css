@@ -24,6 +24,13 @@ li a:hover {
     border-radius: 20px;
 }
 
+.box {
+    background: transparent;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-style: groove;
+    border-color: darkgrey;
+}
 
 .buttadd{
     border-radius: 100px;

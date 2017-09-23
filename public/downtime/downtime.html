@@ -124,31 +124,32 @@
     
     <hr/>
     
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 txtsize">
-      <div class="table-responsive">
-      <table class="table table-hover">
-          <thead class="thead-primary">
-              <tr>
-                <th id="equipment">Equipment</th>
-                <th id="start">Start</th>
-                <th id="end">End</th>
-                <th id="type">Type</th>
-             </tr>
-          </thead>
-         
-         <tr data-ng-repeat="d in allDT | filter: equipment | filter: type | filter: obj | filter: start track by $index" data-ng-if="d != null">
-            <td headers = "equipment">{{d.equipment}}</td>
-            <td headers = "start">{{d.start}}</td>
-            <td headers = "end">{{d.end}}</td>
-            <td headers = "type">{{d.type}}</td>
-         </tr>
-      </table>
+            <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 txtsize">
+        <div class="box">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th id="equipment">Equipment</th>
+                            <th id="start">Start</th>
+                            <th id="end">End</th>
+                            <th id="type">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="d in allDT | filter: equipment | filter: type | filter: obj | filter: start track by $index" data-ng-if="d != null">
+                            <td headers = "equipment">{{d.equipment}}</td>
+                            <td headers = "start">{{d.start}}</td>
+                            <td headers = "end">{{d.end}}</td>
+                            <td headers = "type">{{d.type}}</td>
+                         </tr>
+                    </tbody>
+                </table>
             </div>
-   
-    
-      
-    
-   <hr/>
+        </div>
+    </div>
+</div>
    
     
     <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializeExport()" title="Export table (Excel) to computer"><span class="glyphicon glyphicon-export"></span></a>
@@ -156,7 +157,6 @@
     <a class="btn cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" role="button" data-ng-click="writeUserData(equipment, system)" data-ng-click="initializePrint()" title="Print table to PDF"><span class="glyphicon glyphicon-print"></span></a>
     
     
-</div>
  
 <div class="modal fade" id="manageDT">
   <div class="modal-dialog modal-lg">
