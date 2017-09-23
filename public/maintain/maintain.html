@@ -77,14 +77,14 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="toEditSystem">System</label>
-                            <input type="text" data-ng-model="data[indexValue].system" class="form-control" id="toEditSystem" required>
+                            <input type="text" data-ng-model="data[indexValue].system" class="form-control" id="toEditSystem" >
                         </div>
                     </div>
                 <br/>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="toEditDesc">Description</label>
-                            <textarea type="text" data-ng-model="data[indexValue].description" class="form-control" id="toEditDesc" required></textarea>
+                            <textarea type="text" data-ng-model="data[indexValue].description" class="form-control" id="toEditDesc" ></textarea>
                         </div>
                     </div>  
                 <br/>
@@ -92,7 +92,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="toEditGroup">Group</label>
-                            <input type="text" data-ng-model="data[indexValue].group" class="form-control" id="toEditGroup" required>
+                            <input type="text" data-ng-model="data[indexValue].group" class="form-control" id="toEditGroup" >
                         </div>
                     </div>
                 
@@ -103,7 +103,7 @@
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
                   <strong>Save Complete</strong>
                 </div>
-            <button type="submit" class="btn btn-primary" data-ng-click="editEquipment()">Save</button>
+            <button type="submit" class="btn btn-primary" data-ng-click="saveEquipment()">Save</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
          </div>

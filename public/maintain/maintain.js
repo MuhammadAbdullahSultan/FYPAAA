@@ -67,16 +67,34 @@ $('.dropdown-toggle b').remove().appendTo($('.dropdown-toggle').text($(this).tex
         $scope.indexValue = index;
     };
     
-    $scope.editEquipment = function () {
-//        firebase.database().ref('AllEquipments/' + $scope.editEquipment).set({
-//            system: $scope.editSystem,
-//            description: $scope.editDescription,
-//            group: $scope.editGroup
-//        });
-        list.$save($scope.indexValue).then (function (data) {
-            alert("Data has been saved");
-        });
-    }
+    $scope.saveEquipment = function () {
+        
+        var isEmpty = false;
+        
+        angular.forEach ($scope.data , function (d) {
+            
+    });
+        if($scope.toEditSystem === null) {
+            toaster.pop({type: 'warning', title: "Equipment Field Empty", body: "Please enter a system"});
+        } else if ($scope.toEditDesc === null) {
+            toaster.pop({type: 'warning', title: "Description Empty", body: "Please fill in the description"});
+        } else if ($scope.toEditGroup === null) {
+            toaster.pop({type: 'warning', title: "Group Field Empty", body: "Please select a group, or add a new group"});
+        } else {
+            firebase.database().ref('AllEquipments/' + $scope.editEquipment).push({
+            system: $scope.toEditSystem,
+            description: $scope.toEditDesc,
+            group: $scope.toEditGroup
+            });
+            list.$save($scope.indexValue).then (function (data) {
+            toaster.pop({type: 'Success', title: "New Equipment", body: "A new equipment was added"});
+            });
+            
+        }
+        
+        
+        
+    };
     
     $scope.deleteEquipment = function () {
         var item = list[$scope.indexValue];
