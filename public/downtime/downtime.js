@@ -6,15 +6,12 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/downtime', {
         templateUrl: 'downtime/downtime.html',
         controller: 'downtimeCtrl'
-    });
+    })
 }]);
 
-app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
+app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', 'toaster', function ($scope, $firebaseObject, $firebaseArray, toaster) {
     'use strict';
     
-    window.onload = function () {
-        document.getElementsByName('allType').selected;
-    }
     $scope.notEmptyOrNull = function(item){
   return !(item.name_fr === null || item.name_fr.trim().length === 0)
 }
@@ -28,7 +25,9 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
      $scope.allEquipments = [];
      $scope.allSystems = [];
      $scope.allDT = [];
-    
+    $scope.added = function () {
+        toaster.pop({type: 'Success', title: "Downtime Added", body: "A new downtime was added"});
+    }
     $scope.manageDowntime = function () {
         
         var doesExist = false;
@@ -42,9 +41,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
             start: $scope.startDT,
             end: $scope.endDT
         });
-        
-        var key = firebase.database().ref.key;
-        console.log(key);
+        toaster.pop({type: 'Success', title: "Downtime Added", body: "A new downtime was added"});
         
     };
     
@@ -55,7 +52,6 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
         // for adding
         list.$loaded().then(function(data) {
                 $scope.add = data;
-                console.log($scope.add);
                 
 //                angular.forEach ($scope.add , function (d) {
 //
@@ -66,7 +62,6 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
 //                        console.log(e.system);
 //                    })
 //                });
-                console.log($scope.add);
             }).catch(function(error) {
                 $scope.error = error;
             });
@@ -81,7 +76,6 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
                     $scope.allEquipments.push(e.equipment);
                 })
             });
-            console.log($scope.data);
         }).catch(function(error) {
             $scope.error = error;
         });
@@ -97,7 +91,6 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
                 angular.forEach ($scope.dtdata , function (d) {
                     angular.forEach (d , function (e) {
                     $scope.allDT.push(e);
-                    console.log(e);
                     
                 })
                 });

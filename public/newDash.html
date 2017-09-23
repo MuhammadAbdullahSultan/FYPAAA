@@ -14,6 +14,8 @@
       <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
       <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
       <link rel="stylesheet" href="assets/css/newstyles.min.css">
+      <link rel="stylesheet" href="assets/css/toaster.min.css">
+<!--    <link href="css/angular-ui-switch.min.css" rel="stylesheet">-->
    </head>
    <body data-ng-controller="myCtrl as con" class="bgImage" id="backgroundall">
       <div>
@@ -22,7 +24,6 @@
                <div class="navbar-header">
                   <a class="navbar-brand navbar-link" href="#" style="margin-right:0px;padding-left:109px;color:rgb(247,247,247);background-image:url(&quot;assets/img/logo_xfab.png&quot;);background-position:top;background-size:cover;background-repeat:no-repeat;width:126px;margin-left:22px;">
                   </a>
-                  
                </div>
                <div class="collapse navbar-collapse" id="navcol-1">
                   <ul class="nav navbar-nav navbar-right"></ul>
@@ -31,6 +32,7 @@
          </nav>
       </div>
       <div>
+          <toaster-container toaster-options="{'time-out': 3000,'position-class': 'toast-bottom-right'}"></toaster-container>
          <div class="container">
             <div class="row">
                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -100,37 +102,36 @@
                   </div>
                </div>
                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                   <div class="row">
-                        <div class="text-left show visible-xs-block visible-sm-block visible-md-block visible-lg-block col-xs-12 col-sm-12 col-md-12 col-lg-12" data-aos="fade-down" data-aos-duration="350" data-aos-once="true" style="margin-top:17px;padding:12px;padding-left:0px;background-position:left;background-size:cover">
-                       <div data-ng-view=""></div>
-                       
-                       </div>
-                   </div>
-                  
+                  <div class="row">
+                     <div class="text-left show visible-xs-block visible-sm-block visible-md-block visible-lg-block col-xs-12 col-sm-12 col-md-12 col-lg-12" data-aos="fade-down" data-aos-duration="350" data-aos-once="true" style="margin-top:17px;padding:12px;padding-left:0px;background-position:left;background-size:cover">
+                        <div data-ng-view=""></div>
+                     </div>
+                  </div>
                </div>
-                
-                
             </div>
-             
-             
          </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
       <script src="assets/js/script.min.js"></script>
       <!-- Angular -->
-      <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+      <script src="https://code.angularjs.org/1.6.5/angular.js"></script>
       <!-- Firebase -->
       <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
       <!-- AngularFire -->;
       <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+      <!--Angular route-->
       <script src="https://code.angularjs.org/1.6.4/angular-route.min.js"></script>
+      <!--Chart.js-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.0.3/angular-chart.min.js"></script>
+      <!--Firebase Services-->
       <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
       <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
-      <script src="assets/js/customdropdown.js"></script>
+      <!--Bootstrap-->
+      <script src="https://code.angularjs.org/1.6.5/angular-animate.min.js"></script>
+      <script src="assets/js/toaster.min.js"></script>
       <script src="assets/bootstrap/js/bootstrap.min.js"></script>
       <script src="assets/js/script.min.js"></script>
       <script src="assets/js/app.js"></script>
