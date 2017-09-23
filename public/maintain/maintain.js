@@ -24,26 +24,27 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', f
     $scope.message;
     
     $scope.writeUserData = function () {
-        var doesExist = false;
         var isEmpty = false;
+        
         angular.forEach ($scope.data , function (d) {
-                firebase.database().ref('AllEquipments/' + $scope.equipmentToAdd).set({
+            
+    });
+        if($scope.equipmentToAdd === undefined) {
+            toaster.pop({type: 'warning', title: "Equipment Field Empty", body: "Please enter an equipment"});
+        } else if ($scope.descToAdd === undefined) {
+            toaster.pop({type: 'warning', title: "Description Empty", body: "Please fill in the description"});
+        } else if ($scope.systemToAdd === undefined) {
+            toaster.pop({type: 'warning', title: "System Field Empty", body: "Please enter a system"});
+        } else if ($scope.groupToAdd === undefined) {
+            toaster.pop({type: 'warning', title: "Group Field Empty", body: "Please select a group, or add a new group"});
+        } else {
+            firebase.database().ref('AllEquipments/' + $scope.equipmentToAdd).set({
                     system: $scope.systemToAdd,
                     description: $scope.descToAdd,
                     group: $scope.groupToAdd
                 });
-                $scope.message = "The equipment has been added to the system"
-            
-    });
-        if(doesExist) {
-            return;
+            toaster.pop({type: 'Success', title: "New Equipment", body: "A new equipment was added"});
         }
-        
-        if(isEmpty) {
-            return;
-        }
-        
-        
         
 };
  //maximum character in description   

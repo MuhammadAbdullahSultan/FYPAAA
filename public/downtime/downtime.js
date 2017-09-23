@@ -25,9 +25,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '
      $scope.allEquipments = [];
      $scope.allSystems = [];
      $scope.allDT = [];
-    $scope.added = function () {
-        toaster.pop({type: 'Success', title: "Downtime Added", body: "A new downtime was added"});
-    }
+    
     $scope.manageDowntime = function () {
         
         var doesExist = false;
@@ -37,7 +35,7 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '
     });
         
         if($scope.addEquipment === null) {
-            toaster.pop({type: 'warning', title: "Equipment Field Empty", body: "Please Select an equipment from the dropdown"});
+            toaster.pop({type: 'warning', title: "Equipment Field Empty", body: "Please select an equipment from the dropdown"});
         } else if ($scope.type === null) {
             toaster.pop({type: 'warning', title: "Type not selected", body: "Please select the type of maintenance"});
         } else if ($scope.startDT === undefined) {
