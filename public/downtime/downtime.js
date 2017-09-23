@@ -35,13 +35,25 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '
         angular.forEach (d.equipments, function (e) {
         })
     });
-        firebase.database().ref('downtime/' + $scope.addEquipment).push({
+        
+        if($scope.addEquipment === null) {
+            toaster.pop({type: 'warning', title: "Equipment Field Empty", body: "Please Select an equipment from the dropdown"});
+        } else if ($scope.type === null) {
+            toaster.pop({type: 'warning', title: "Type not selected", body: "Please select the type of maintenance"});
+        } else if ($scope.startDT === undefined) {
+            toaster.pop({type: 'warning', title: "Start Time Empty", body: "Please enter a start time"});
+        } else if ($scope.endDT === undefined) {
+            toaster.pop({type: 'warning', title: "End Time Empty", body: "Please enter an end time"});
+        } else {
+            firebase.database().ref('downtime/' + $scope.addEquipment).push({
             equipment: $scope.addEquipment,
             type : $scope.type,
             start: $scope.startDT,
             end: $scope.endDT
-        });
-        toaster.pop({type: 'Success', title: "Downtime Added", body: "A new downtime was added"});
+            });
+            toaster.pop({type: 'Success', title: "Downtime Added", body: "A new downtime was added"});
+        }
+        
         
     };
     
