@@ -116,20 +116,29 @@ app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '
 
         $('#datetimepicker1').datetimepicker({
             viewMode: 'years',
-            maxDate: $.now()
+            format: 'DD/MM/YYYY hh:mm',
+            onSelect: function(selected) {
+        $("#datetimepicker3").datetimepicker("option","minDate", selected)
+        }
+
             
+//            if ($scope.startDT > $.now()) 
+//            {
+//            toaster.pop({type: 'warning', title: "Start Time Empty", body: "Please enter a start time"});
+//            }
+//        }
         }); 
         
         $('#datetimepicker3').datetimepicker({
             viewMode: 'years',
-            maxDate: $.now()
+            format: 'DD/MM/YYYY hh:mm'
             
+
         });
         
         $('#datetimepickerSearch').datetimepicker({
             viewMode: 'years',
-            format: 'MM/DD/YYYY',
-            maxDate: $.now()
+            format: 'DD/MM/YYYY'
 
         });
         
