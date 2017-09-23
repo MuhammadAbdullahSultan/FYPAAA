@@ -11,6 +11,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.controller('downtimeCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
     'use strict';
+    
+    window.onload = function () {
+        document.getElementsByName('allType').selected;
+    }
     $scope.notEmptyOrNull = function(item){
   return !(item.name_fr === null || item.name_fr.trim().length === 0)
 }
