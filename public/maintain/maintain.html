@@ -9,8 +9,10 @@
    </div>
    <br/>
    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       <div class="box">
+           <div class="table-responsive">
       <table id="fruits" class="table table-hover txtsize">
-         <thead  style="background: grey">
+         <thead>
             <tr>
                 <th class="sortable">Equipment Name</th>
                 <th class="sortable">System</th>
@@ -36,7 +38,7 @@
          </tbody>
          <tfoot>
             <tr>
-               <td colspan="2">
+               <td colspan="2" class="txtsize">
                   <ul class="pagination">
                      <li data-ng-class="prevPageDisabled()">
                         <a href="" data-ng-click="prevPage()">Prev</a>
@@ -54,6 +56,8 @@
             </tr>
          </tfoot>
       </table>
+               </div>
+           </div>
    </div>
 </div>
 
