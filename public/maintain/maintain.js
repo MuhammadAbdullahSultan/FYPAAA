@@ -17,7 +17,7 @@ app.filter("offset", function () {
 	};
 });
 
-app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function ($scope, $firebaseObject, $firebaseArray) {
+app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', 'toaster', function ($scope, $firebaseObject, $firebaseArray, toaster) {
     $scope.unitsInPage = 6;
 	$scope.currentPage = 0;
     'use strict';
