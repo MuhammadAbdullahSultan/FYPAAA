@@ -11,8 +11,8 @@
    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <div class="box">
            <div class="table-responsive">
-      <table id="fruits" class="table table-hover">
-         <thead class = "thead-inverse">
+      <table id="fruits" class="table table-hover table-inverse">
+         <thead class = "thead">
             <tr>
                 <th class="sortable asc">Equipment Name</th>
                 <th class="sortable">System</th>
@@ -67,7 +67,6 @@
 <!-- Modal For adding Equipment-->
 <div class="modal fade" role="dialog" id="editEquipment" aria-hidden="true" tabindex="-1">
    <div class="modal-dialog modal-lg">
-      <form>
          <div class="modal-content txtsize">
             <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -103,11 +102,10 @@
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
                   <strong>Save Complete</strong>
                 </div>
-            <button type="submit" class="btn btn-primary" data-ng-click="saveEquipment()">Save</button>
+            <button type="button" class="btn btn-primary" data-ng-click="saveEquipment()">Save</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
          </div>
-      </form>
    </div>
 </div>
 
