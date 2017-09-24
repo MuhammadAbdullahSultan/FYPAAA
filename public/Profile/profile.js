@@ -3,13 +3,13 @@ var app = angular.module('create', ['ngRoute']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     'use strict';
-    $routeProvider.when('/create', {
-        templateUrl: 'create/create.html',
-        controller: 'createUserCtrl'
+    $routeProvider.when('/profile', {
+        templateUrl: 'profile/profile.html',
+        controller: 'profileCtrl'
     });
 }]);
 
-app.controller('createUserCtrl', ['$scope', '$rootScope', '$firebaseObject', 'Auth', 'toaster', function ($scope, $rootScope, $firebaseObject, Auth, toaster) {
+app.controller('profileCtrl', ['$scope', '$rootScope', '$firebaseObject', 'Auth', 'toaster', function ($scope, $rootScope, $firebaseObject, Auth, toaster) {
     
     // Change user password
     $scope.changePassword = function () {
@@ -35,21 +35,6 @@ app.controller('createUserCtrl', ['$scope', '$rootScope', '$firebaseObject', 'Au
             // Create a toaster error message
             toaster.pop({type: 'error', title: "Error", body: error.message});
             $scope.$apply();
-        });
-    };
-    
-    // Create new user
-    $scope.createUser = function() {
-      Auth.$createUserWithEmailAndPassword($scope.email, $scope.password)
-        .then(function(firebaseUser) {
-          // Store user into database
-            var uid = firebaseUser.uid;
-            firebase.database().ref("users/" + uid).set($scope.email);
-          // pop toaster for success
-            toaster.pop({type: 'successs', title: "User Account created", body: "A new user has been added"});
-        }).catch(function(error) {
-            $scope.error = error;
-            toaster.pop({type: 'danger', title: "Error", body: error});
         });
     };
 }]);

@@ -87,7 +87,7 @@ $('.dropdown-toggle b').remove().appendTo($('.dropdown-toggle').text($(this).tex
 //            group: $scope.data[$scope.indexValue].group
 //            });
             list.$save($scope.indexValue).then (function (data) {
-            toaster.pop({type: 'Success', title: "Success", body: "Equipment " +$scope.indexValue +" was edited"});
+            toaster.pop({type: 'Success', title: "Success", body: "Equipment " +$scope.data[$scope.indexValue].$id +" was edited"});
             });
             
         }

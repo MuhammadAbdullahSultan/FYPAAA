@@ -18,7 +18,7 @@
   <br>
     
     <div class="row">
-              <button ng-click="createUser()" class="btn  cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active ">Create User  <span class="glyphicon glyphicon-plus"></span></button>
+              <button data-ng-click="createUser()" class="btn  cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active ">Create User  <span class="glyphicon glyphicon-plus"></span></button>
         
         <button ng-click="changePW()" class="btn  cd-add-to-cart cd-add-to-cart:hover cd-add-to-cart:active" data-toggle="modal" data-target="#changePassword" data-backdrop="false">Change Password  <span class="glyphicon glyphicon-pencil"></span></button>  
 
@@ -27,9 +27,6 @@
   <br><br>
 
 <!--  <button ng-click="deleteUser()">Delete User</button>-->
-
-  <p ng-if="message"><strong>{{ message }}</strong></p>
-  <p ng-if="error" class="alert alert-warning txtsize">Error: <strong>{{ error }}</strong></p>
     
     <br>
     
