@@ -47,6 +47,10 @@ app.controller('maintainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '
         }
         
 };
+    //checkboxes table  
+        $('.selectallAO').click(function() {
+        this.checked ? $('.checkboxAO').prop('checked', true) : $('.checkboxAO').prop('checked', false);
+    });
  //maximum character in description   
     $('textarea').keypress(function(){
 
